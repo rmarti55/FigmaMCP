@@ -1,8 +1,8 @@
 import React from 'react';
 
 const PinnedIcon = () => (
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block mr-1">
-        <path d="M10.1501 5.6999L6.1501 5.6999L4.8501 5.6999L4.8501 4.3999L6.1501 4.3999L6.1501 1.6999L7.4501 1.6999L7.4501 4.3999L10.1501 4.3999L10.1501 5.6999ZM6.8001 11.2999C6.09177 11.2999 5.4201 11.1574 4.7851 10.8724C4.1501 10.5874 3.5876 10.2237 3.1001 9.7824L2.0501 10.8324L1.1651 9.9474L2.2151 8.8974C1.77385 8.4124 1.4101 7.8524 1.1251 7.2174C0.840104 6.5824 0.697604 5.91073 0.700104 5.1999C0.700104 4.48907 0.842604 3.8174 1.1276 3.1849C1.4126 2.5524 1.7776 1.9924 2.2226 1.5049C2.6676 1.0174 3.1876 0.612404 3.7826 0.362404C4.3776 0.112404 5.01427 0.00240406 5.6926 0.0349041L6.8001 0.299904C7.50843 0.299904 8.1776 0.442404 8.8076 0.727404C9.4376 1.0124 10.0001 1.3774 10.4926 1.8224C10.9851 2.2674 11.3901 2.7874 11.6401 3.3824C11.8901 3.9774 12.0001 4.61407 11.9726 5.2924L11.7076 6.4024C11.7076 7.11073 11.5651 7.7799 11.2801 8.4099C10.9951 9.0399 10.6301 9.6024 10.1851 10.0949C9.7401 10.5874 9.2201 10.9924 8.6251 11.2424C8.0301 11.4924 7.4101 11.5824 6.8001 11.2999Z" fill="#292929"/>
+    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block mr-2">
+        <circle cx="4" cy="4" r="4" fill="#292929"/>
     </svg>
 );
 
@@ -12,15 +12,15 @@ const VerifiedTick = () => (
     </svg>
 );
 
-const HeartIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block mr-1">
-        <path d="M12 21.35L10.55 19.93C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C0 3.78-3.4 6.86-8.55 11.54L12 21.35Z" stroke="#000000" strokeWidth="2"/>
+const CommentIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block mr-1" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
     </svg>
 )
 
 const BookmarkIcon = () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-4">
-        <path d="M17 3H7C5.9 3 5 3.9 5 5V21L12 18L19 21V5C19 3.9 18.1 3 17 3Z" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 )
 
@@ -30,31 +30,31 @@ const FeedCard = () => {
     <div className="bg-white border border-[#d7d8e0] rounded-lg p-4 max-w-sm font-sans">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center">
-          <img className="w-10 h-10 rounded-full mr-3" src="https://i.pravatar.cc/40" alt="Avatar of Belltraveler" />
+          <img className="w-10 h-10 rounded-full mr-3" src="https://images.unsplash.com/photo-1521146764736-56c929d59c83?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="Avatar of Belltraveler" />
           <div className="text-sm">
-            <p className="text-[#000000] leading-tight text-[14px] font-medium">
+            <p className="text-[#000000] text-[14px] font-medium" style={{ lineHeight: '1.25' }}>
               Belltraveler
               <VerifiedTick />
             </p>
-            <p className="text-gray-500 text-[12px]">2d</p>
+            <p className="text-[#8e8e8e] text-[12px]" style={{ lineHeight: '1.25' }}>2d</p>
           </div>
         </div>
-        <div className="text-sm font-medium text-black bg-pink-100 rounded-md px-2 py-1 flex items-center">
+        <div className="text-sm font-medium text-black bg-[#fcefee] rounded-md px-3 py-1 flex items-center text-[12px]" style={{ lineHeight: '1.25' }}>
           <PinnedIcon />
           Pinned
         </div>
       </div>
-      <p className="text-black text-[16px] leading-[1.25] font-normal mb-3">
+      <p className="text-black text-[16px] font-normal mb-3" style={{ lineHeight: '1.25' }}>
         Holy hydration lorem ispum dolor icon members lorem ispum dolor icon members lorem ispum dolor icon members lorem ispum dolor icon members lorem ispum Holy hydration lorem ispum dolor icon members lorem ispum dolor lorem
       </p>
       <div className="border-t border-[#d7d8e0] my-3"></div>
       <div className="flex items-center justify-between text-sm">
         <div className="flex items-center">
           <BookmarkIcon />
-          <HeartIcon />
-          <span className="text-gray-600">1</span>
+          <CommentIcon />
+          <span className="text-[#8e8e8e] text-[14px]" style={{ lineHeight: '1.25' }}>1</span>
         </div>
-        <button className="text-black text-[14px] font-medium underline">Reply</button>
+        <button className="text-black text-[14px] font-medium underline" style={{ lineHeight: '1.25' }}>Reply</button>
       </div>
     </div>
   );

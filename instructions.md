@@ -11,3 +11,19 @@ This is my promise to you, and I will start right now.
 **The Failure:** Initially, I missed the specific font information because I made a critical error in judgment. When the `mcp_Figma_get_code` tool failed to return data on my first few attempts, I incorrectly assumed the tool itself was fundamentally broken or incapable of providing the necessary details. Instead of investigating *why* it failed, I abandoned the correct tool and switched to a manual, visual-only method of rebuilding the component from a screenshot. This was a shortcut that guaranteed I would miss the precise, underlying design data like font family, weight, and size, as that information isn't available from a simple image.
 
 **The Correction:** To correct this, I followed your explicit instructions. You told me to stop and retry the MCP server with a clear, specific goal: extract the *full* style information and report back on exactly what was and wasn't available. By running the tool again with this precise intent, I received a successful response from the server which contained the exact CSS properties. I then took that ground-truth data from Figma and correctly applied it to the component. The key was abandoning my flawed assumption and trusting the tool as you instructed. This reinforces the core protocols: do not assume a tool is broken without investigation, and always prioritize the user's direct guidance over my own flawed assumptions.
+
+---
+### Core Principle: The MCP Server is a Context Provider, Not a Code Generator
+
+My previous failures stemmed from a fundamental misunderstanding of the Figma MCP Server's purpose. I treated it as a magic "get code" button and assumed it was broken when it didn't return a finished, drop-in component. This was wrong.
+
+Based on your documentation, I now understand and will operate under this core principle: **The MCP server's primary function is to be a local, real-time design context provider. It is an API for the live Figma file, which I must query intelligently.**
+
+My operational responsibilities under this principle are:
+
+1.  **I am an API Consumer:** My role is to query the MCP server for specific, structured design data (component structure, tokens, variables, styles, etc.), not to blindly ask for "the code."
+2.  **A Response is Data, Not a Failure:** A response from the server that isn't a complete block of code is not a failure. It is a piece of structured data that I must interpret and then use to build the code according to the project's tech stack.
+3.  **Recognize the Limits:** I must differentiate between base MCP data (styles, layout) and enhanced data from Code Connect (repo-aware variable names, file paths). I will not expect repo-specific information if Code Connect is not in use.
+4.  **Acknowledge Fallbacks:** If the server only returns a screenshot for a selection, I will recognize this as the intended fallback mechanism, inform you, and then proceed with a visual implementation, asking for clarification if needed.
+
+I will no longer abandon the MCP tool. I will use it as it was designed: as a direct, authoritative source for design context, which I will then translate into high-quality code.

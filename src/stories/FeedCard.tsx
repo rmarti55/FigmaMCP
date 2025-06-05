@@ -44,7 +44,7 @@ const FeedCard = () => {
           Pinned
         </div>
       </div>
-      <p className="text-gray-800 text-sm mb-3">
+      <p className="text-black text-[16px] leading-[1.25] font-medium mb-3">
         Holy hydration lorem ispum dolor icon members lorem ispum dolor icon members lorem ispum dolor icon members lorem ispum dolor icon members lorem ispum Holy hydration lorem ispum dolor icon members lorem ispum dolor lorem
       </p>
       <div className="border-t border-gray-200 my-3"></div>

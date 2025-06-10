@@ -37,10 +37,7 @@ export function TableRow({ rowData }: TableRowProps) {
       <td className="py-4 px-3 text-sm text-gray-500 max-w-xs">{rowData.comment}</td>
       <td className="py-4 px-3 text-sm text-gray-500 max-w-xs">{rowData.aiResponse}</td>
       <td className="py-4 px-3 text-sm text-gray-500 max-w-xs">
-        <textarea
-          defaultValue={rowData.editedResponse}
-          className="w-full h-24 p-2 border rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        />
+        {rowData.editedResponse}
       </td>
       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
         <div className="flex items-center justify-end gap-2">

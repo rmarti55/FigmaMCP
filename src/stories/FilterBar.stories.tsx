@@ -5,6 +5,9 @@ const meta: Meta<typeof FilterBar> = {
   title: 'Design System/Organisms/FilterBar',
   component: FilterBar,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export default meta;

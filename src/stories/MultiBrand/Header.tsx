@@ -3,14 +3,6 @@ import clsx from "clsx";
 
 // --- Sub-Components used only by Header ---
 
-function BackgroundImage123({ children }: React.PropsWithChildren<{}>) {
-  return (
-    <div className="flex flex-col justify-center relative shrink-0">
-      {children}
-    </div>
-  );
-}
-
 type BackgroundImageAndTextProps = {
   text: string;
   additionalClassNames?: string[];
@@ -109,14 +101,7 @@ export default function Header() {
         >
           <div className="box-border content-stretch flex flex-row font-sans gap-10 h-[42px] items-center justify-end leading-[0] not-italic p-0 relative text-[#000000] text-[14px] text-left text-nowrap tracking-[0.84px] uppercase w-full">
             <BackgroundImageAndText text="Home" />
-            <BackgroundImage123>
-              <p className="leading-[1.25] text-nowrap whitespace-pre">
-                BF
-                <span className="adjustLetterSpacing lowercase">
-                  e.l.f
-                </span>
-              </p>
-            </BackgroundImage123>
+            <BackgroundImageAndText text="BFe.l.f" />
             <BackgroundImageAndText text="Ramon" />
             <BackgroundImageAndText text="Logout" />
           </div>

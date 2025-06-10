@@ -6,19 +6,14 @@ import { ChevronDown } from 'lucide-react';
 
 type BackgroundImageAndTextProps = {
   text: string;
-  additionalClassNames?: string[];
 };
 
 function BackgroundImageAndText({
-  text,
-  additionalClassNames = [],
+  text
 }: BackgroundImageAndTextProps) {
   return (
     <div
-      className={clsx(
-        "box-border content-stretch flex flex-col gap-2.5 h-8 items-center justify-center relative",
-        additionalClassNames,
-      )}
+      className="box-border content-stretch flex flex-col gap-2.5 h-8 items-center justify-center relative"
     >
       <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#000000] text-[16px] text-left text-nowrap">
         <p className="block leading-[1.25] whitespace-pre">{text}</p>
@@ -30,11 +25,21 @@ function BackgroundImageAndText({
 
 // --- Main Header Component ---
 
-export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+type HeaderProps = {
+  initialOpen?: boolean;
+}
+
+export default function Header({ initialOpen = false }: HeaderProps) {
+  const [isOpen, setIsOpen] = useState(initialOpen);
   const brands = ["e.l.f. Skin", "e.l.f. Cosmetics", "Well People", "Keys Soul Care", "Naturium", "Rhode"];
   const [selectedBrand, setSelectedBrand] = useState(brands[0]);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // This effect ensures that the component's internal open state
+    // can be synced with the story's initialOpen prop.
+    setIsOpen(initialOpen);
+  }, [initialOpen]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {

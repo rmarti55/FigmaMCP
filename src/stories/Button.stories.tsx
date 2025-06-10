@@ -57,12 +57,12 @@ export const Disabled: Story = {
 };
 
 export const FilterButtonGroup: Story = {
-  name: 'Filter Button Group',
+  name: 'Filter Button Group (from Figma)',
   render: () => (
-    <div className="flex flex-row gap-2 items-center p-4 bg-gray-50 rounded-lg">
-      <Button variant="dark">
+    <div className="flex flex-row gap-2 items-center p-4 bg-white rounded-lg">
+      <Button variant="dark" className="pl-5 pr-3">
         Instagram
-        <ChevronDown className="h-4 w-4 ml-1 stroke-current" />
+        <ChevronDown className="h-4 w-4 ml-2" />
       </Button>
       <Button variant="selected">Comments</Button>
       <Button variant="default">Ads</Button>

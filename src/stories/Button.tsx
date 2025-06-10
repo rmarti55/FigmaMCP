@@ -3,17 +3,17 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { clsx } from 'clsx';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-full text-sm font-bold transition-colors border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
+  'inline-flex items-center justify-center rounded-[35px] text-sm font-normal transition-colors border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
   {
     variants: {
       variant: {
-        default: 'bg-white hover:bg-neutral-100 text-black border-neutral-300',
+        default: 'bg-white hover:bg-neutral-100 text-black border-[#c3c5d0]',
         selected:
-          'bg-indigo-100 text-black hover:bg-indigo-200 border-transparent',
+          'bg-[#dce0f4] text-black hover:bg-indigo-200 border-[#dce0f4]',
         dark: 'bg-black text-white hover:bg-neutral-800 border-transparent',
       },
       size: {
-        default: 'h-8 px-4',
+        default: 'h-8 px-5 py-[7px] text-[14px]',
         sm: 'h-7 px-3',
         lg: 'h-9 px-8',
       },

@@ -5,6 +5,9 @@ const meta: Meta<typeof DropdownButton> = {
   title: 'Design System/Atoms/DropdownButton',
   component: DropdownButton,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export default meta;

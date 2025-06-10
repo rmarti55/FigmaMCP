@@ -5,6 +5,9 @@ const preview: Preview = {
   parameters: {
     docs: {
       codePanel: true,
+      source: {
+        type: 'code',
+      },
     },
     controls: {
       matchers: {

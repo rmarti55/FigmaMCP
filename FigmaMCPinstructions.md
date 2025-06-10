@@ -39,4 +39,25 @@ The MCP server does not always provide 100% of the required information in a sin
 2.  To build a specific component, query the desired **variant instance**.
 3.  Analyze the detailed response from the variant query.
 4.  If assets like icons are still missing, use a screenshot as the source of truth to manually create them.
-5.  Combine the token data and asset data to build a complete and precise component. 
+5.  Combine the token data and asset data to build a complete and precise component.
+
+## Our Workflow: Figma to Live Component
+
+4.  **Iterate:** We now have a live, version-controlled component. We can repeat this process for any component in Figma, building out our library one by one.
+
+---
+
+## Troubleshooting & Best Practices
+
+This section captures key learnings from our development process to ensure we work more efficiently and avoid repeating past mistakes.
+
+### 1. Handling Vercel Dependency Errors
+
+**Problem:** The Vercel build failed repeatedly with "Cannot find module" errors for Storybook addons, even though the app ran locally. My initial attempts to fix this by manually installing the addons (`@storybook/addon-essentials`, etc.) did not work and created a frustrating loop.
+
+**Root Cause:** Frameworks like Storybook manage their own internal dependencies. Manually adding addon packages to `package.json` can conflict with the versions the core `storybook` package expects, leading to build failures in a clean CI/CD environment like Vercel.
+
+**Solution & Rule for the Future:**
+*   **Stop and Research:** If a dependency-related fix fails more than once, I will stop and consult the official documentation for the framework in question.
+*   **Trust the Framework:** Assume the primary package (e.g., `storybook`) handles its own core dependencies. Do not manually add sub-dependencies unless the official documentation explicitly says to.
+*   **The Fix:** The correct solution was to remove the manually added, conflicting addons and let the primary `storybook` package manage them. The specific Vercel build issue was resolved by adding `@storybook/blocks`, as per the Storybook v9 documentation. 

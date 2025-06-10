@@ -10,6 +10,10 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Header from '../Header';
+import { TableHeader } from '../TableHeader';
+import { TableRow, TableRowData } from '../TableRow';
+import { FilterBar } from '../FilterBar';
+import { FilterButtonGroup } from '../FilterButtonGroup';
 
 // This is a complex component generated from Figma.
 // It has been broken down into smaller sub-components for clarity and reusability.
@@ -339,6 +343,33 @@ function MultiBrandBackgroundImageAndText1({
 // --- Main Component ---
 
 export default function MultiBrand() {
+  // Example mock data for table rows
+  const mockRows: TableRowData[] = [
+    {
+      id: '1',
+      postImage: '',
+      postBody: "Just got my beauty box and I'm so excited to try the products! ✨ #BeautyBox",
+      comment: 'This makeup look is everything, I need to recreate it ASAP!',
+      aiResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
+      editedResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
+    },
+    {
+      id: '2',
+      postImage: '',
+      postBody: 'Excited to pamper myself with BlissfulBubbles bath bombs! 🛁 #PamperTime',
+      comment: 'This makeup look is everything, I need to recreate it ASAP!',
+      aiResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
+      editedResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
+    },
+    // Add more rows as needed
+  ];
+  const headers = [
+    'Post Image',
+    'Post Body',
+    'Comment',
+    'AI Response',
+    'Edited/Posted Response',
+  ];
   return (
     <div className="bg-[#f2f2f2] relative size-full" data-name="Multi-Brand">
       <div
@@ -353,248 +384,24 @@ export default function MultiBrand() {
             >
               <div className="box-border content-stretch flex flex-col gap-6 items-start justify-start p-0 relative w-full">
                 <Header />
-                <div className="h-8 relative shrink-0 w-full" data-name="BRand">
-                  <div className="box-border content-stretch flex flex-row gap-4 h-8 items-start justify-start p-0 relative w-full">
-                    <div
-                      className="bg-[#000000] relative rounded-[35px] shrink-0"
-                      data-name="Filter Chips"
-                    >
-                      <MultiBrandBackgroundImage1>
-                        <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[14px] text-center text-nowrap">
-                          <p className="block leading-[1.25] whitespace-pre">
-                            Instagram
-                          </p>
-                        </div>
-                        <div
-                          className="overflow-clip relative shrink-0 size-4"
-                          data-name="All Icons/Chevron-Down/White/16"
-                        >
-                          <div
-                            className="absolute flex h-[4.667px] items-center justify-center translate-x-[-50%] translate-y-[-50%] w-[9.333px]"
-                            style={{
-                              top: "calc(50% - 0.133334px)",
-                              left: "calc(50% + 0.00333262px)",
-                            }}
-                          >
-                            <MultiBrandBackgroundImage2>
-                              <div
-                                className="absolute bottom-[-10.714%] left-[-5.357%] right-[-5.357%] top-[-10.714%]"
-                                style={
-                                  {
-                                    "--stroke-0": "rgba(255, 255, 255, 1)",
-                                  } as React.CSSProperties
-                                }
-                              >
-                                <MultiBrandBackgroundImage3>
-                                  <path
-                                    d="M10.3333 5.66667L5.66667 1L1 5.66667"
-                                    id="Vector"
-                                    stroke="var(--stroke-0, white)"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </MultiBrandBackgroundImage3>
-                              </div>
-                            </MultiBrandBackgroundImage2>
-                          </div>
-                        </div>
-                      </MultiBrandBackgroundImage1>
-                    </div>
-                    <div
-                      className="bg-[#dce0f4] relative rounded-[35px] shrink-0"
-                      data-name="Filter Chips"
-                    >
-                      <div className="absolute border border-[#dce0f4] border-solid inset-0 pointer-events-none rounded-[35px]" />
-                      <MultiBrandBackgroundImageAndText1 text="Comments" />
-                    </div>
-                    <div
-                      className="relative rounded-[35px] shrink-0"
-                      data-name="Filter Chips"
-                    >
-                      <div className="absolute border border-[#c3c5d0] border-solid inset-0 pointer-events-none rounded-[35px]" />
-                      <MultiBrandBackgroundImageAndText1 text="Ads" />
-                    </div>
-                    <div
-                      className="relative rounded-[35px] shrink-0"
-                      data-name="Filter Chips"
-                    >
-                      <div className="absolute border border-[#c3c5d0] border-solid inset-0 pointer-events-none rounded-[35px]" />
-                      <MultiBrandBackgroundImageAndText1 text="All Posts" />
-                    </div>
-                    <div
-                      className="relative rounded-[35px] shrink-0"
-                      data-name="Filter Chips"
-                    >
-                      <div className="absolute border border-[#c3c5d0] border-solid inset-0 pointer-events-none rounded-[35px]" />
-                      <MultiBrandBackgroundImageAndText1 text="Earned Media" />
-                    </div>
-                    <div
-                      className="relative rounded-[35px] shrink-0"
-                      data-name="Filter Chips"
-                    >
-                      <div className="absolute border border-[#c3c5d0] border-solid inset-0 pointer-events-none rounded-[35px]" />
-                      <MultiBrandBackgroundImageAndText1 text="Statistics" />
-                    </div>
-                  </div>
-                </div>
+                <FilterButtonGroup />
               </div>
             </div>
             <div
               className="relative shrink-0 w-full"
               data-name="Filter Container"
             >
-              <div className="box-border content-stretch flex flex-row gap-6 items-center justify-start p-0 relative w-full">
-                <div
-                  className="bg-[#ffffff] h-10 relative rounded-[50px] shrink-0 w-[246px]"
-                  data-name="Search Bar"
-                >
-                  <div className="absolute border border-[#000000] border-solid inset-0 pointer-events-none rounded-[50px]" />
-                  <div className="flex flex-row items-center relative size-full">
-                    <div className="box-border content-stretch flex flex-row gap-2 h-10 items-center justify-start px-3 py-4 relative w-[246px]">
-                      <div
-                        className="relative shrink-0 size-6 flex items-center justify-center"
-                        data-name="All Icons/Search/White/24"
-                      >
-                        <Search size={20} />
-                      </div>
-                      <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-left text-nowrap">
-                        <p className="block leading-[1.25] whitespace-pre">
-                          Search Comment
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="basis-0 grow min-h-px min-w-px relative shrink-0"
-                  data-name="Search and Date Container"
-                >
-                  <div className="box-border content-stretch flex flex-row gap-2.5 items-start justify-start p-0 relative w-full">
-                    <DropdownlistboxBackgroundImage
-                      additionalClassNames={["w-[177px]"]}
-                      text="Search Post"
-                      additionalClassNames1={["w-[177px]"]}
-                    />
-                    <DropdownlistboxBackgroundImage
-                      additionalClassNames={["w-[186px]"]}
-                      text="Show Bookmarked"
-                      additionalClassNames1={["w-[186px]"]}
-                    />
-                    <DropdownlistboxBackgroundImage
-                      additionalClassNames={["w-[190px]"]}
-                      text="Response"
-                      additionalClassNames1={["w-[190px]"]}
-                    />
-                    <DropdownlistboxBackgroundImage
-                      additionalClassNames={["w-[195px]"]}
-                      text="Comment Posted TIme"
-                      additionalClassNames1={["w-[195px]"]}
-                    />
-                    <DropdownlistboxBackgroundImage
-                      additionalClassNames={["w-52"]}
-                      text="Show Hidden"
-                      additionalClassNames1={["w-52"]}
-                    />
-                  </div>
-                </div>
-                <div
-                  className="bg-[#ffffff] h-8 relative rounded-[100px] shrink-0"
-                  data-name="CTA Button"
-                >
-                  <div className="box-border content-stretch flex flex-row gap-3 h-8 items-center justify-end p-0 relative">
-                    <div
-                      className="relative rounded-[100px] shrink-0"
-                      data-name="_Button base component"
-                    >
-                      <div className="flex flex-row items-center justify-center overflow-clip relative size-full">
-                        <div className="box-border content-stretch flex flex-row items-center justify-center px-4 py-[7px] relative">
-                          <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-center text-nowrap tracking-[0.84px] uppercase">
-                            <p className="adjustLetterSpacing block leading-[1.25] whitespace-pre">
-                              REFRESH
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="absolute border border-[#000000] border-solid inset-0 pointer-events-none rounded-[100px]" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <FilterBar />
             </div>
             <div className="relative shrink-0 w-full" data-name="Table">
-              <div className="absolute border border-[#eaeaea] border-solid inset-0 pointer-events-none" />
-              <div className="box-border content-stretch flex flex-col gap-px items-start justify-start p-0 relative w-full">
-                <div
-                  className="bg-neutral-50 relative shrink-0 w-full"
-                  data-name="Table/th"
-                >
-                  <div className="absolute border-[#eaeaea] border-[0px_0px_1px] border-solid bottom-[-1px] left-0 pointer-events-none right-0 top-0" />
-                  <div className="relative size-full">
-                    <div className="box-border content-stretch flex flex-row gap-6 items-start justify-start p-[12px] relative w-full">
-                      <div className="relative shrink-0" data-name="td">
-                        <div className="box-border content-stretch flex flex-row gap-3 items-center justify-start p-0 relative">
-                          <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-left text-nowrap">
-                            <p className="block leading-[1.25] whitespace-pre">
-                              Post Image
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <MultiBrandTdBackgroundImageAndText text="Post Body" />
-                      <MultiBrandTdBackgroundImageAndText text="Comment" />
-                      <MultiBrandTdBackgroundImageAndText text="AI Response" />
-                      <BackgroundImage79>
-                        <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-left w-[224.87px]">
-                          <p className="block leading-[1.25]">
-                            Edited/Posted Response
-                          </p>
-                        </div>
-                      </BackgroundImage79>
-                      <div
-                        className="relative shrink-0 w-[156px]"
-                        data-name="td"
-                      >
-                        <div className="box-border content-stretch flex flex-row gap-3 items-center justify-start p-0 w-[156px]" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <BackgroundImage64>
-                  <MultiBrandImagecontainerBackgroundImage />
-                  <BackgroundImage12>{`Just got my beauty box and I'm so excited to try the products! ✨ #BeautyBox`}</BackgroundImage12>
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="This makeup look is everything, I need to recreate it ASAP!" />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?" />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?" />
-                  <MultiBrandActioncontainerBackgroundImage ctaText="POST" />
-                </BackgroundImage64>
-                <BackgroundImage64>
-                  <MultiBrandImagecontainerBackgroundImage />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="Excited to pamper myself with BlissfulBubbles bath bombs! 🛁 #PamperTime" />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="This makeup look is everything, I need to recreate it ASAP!" />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?" />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?" />
-                  <MultiBrandActioncontainerBackgroundImage ctaText="POST" />
-                </BackgroundImage64>
-                <BackgroundImage64>
-                  <MultiBrandImagecontainerBackgroundImage />
-                  <BackgroundImage12>{`Thrilled to start my self-care journey with RadiantSkin's new line! 🌟 #SelfCare`}</BackgroundImage12>
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="This makeup look is everything, I need to recreate it ASAP!" />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?" />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?" />
-                  <MultiBrandActioncontainerBackgroundImage ctaText="POST" />
-                </BackgroundImage64>
-                <BackgroundImage64>
-                  <MultiBrandImagecontainerBackgroundImage />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="So excited to dive into the latest ColorPop palette! 🎨✨ #BeautyBuzz" />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="Love this skincare routine, my skin is gonna glow!" />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey there! 🌼 Thanks for being such an awesome fan! We're super excited to have you here! What's the one item from our collection you can't live without?" />
-                  <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey there! 🌼 Thanks for being such an awesome fan! We're super excited to have you here! What's the one item from our collection you can't live without?" />
-                  <MultiBrandActioncontainerBackgroundImage ctaText="POST" />
-                </BackgroundImage64>
-                <TablerowBackgroundImage />
-                <TablerowBackgroundImage />
-                <TablerowBackgroundImage />
-              </div>
+              <table className="min-w-full divide-y divide-gray-200 bg-white">
+                <TableHeader headers={headers} />
+                <tbody>
+                  {mockRows.map((row) => (
+                    <TableRow key={row.id} rowData={row} />
+                  ))}
+                </tbody>
+              </table>
             </div>
             <div
               className="relative shrink-0 w-[1392px]"

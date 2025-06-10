@@ -1,5 +1,14 @@
 import clsx from "clsx";
 import React from 'react';
+import {
+  Bookmark,
+  ChevronDown,
+  ChevronsUpDown,
+  MessageSquare,
+  Search,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 // This is a complex component generated from Figma.
 // It has been broken down into smaller sub-components for clarity and reusability.
@@ -61,42 +70,7 @@ function DropdownlistboxBackgroundImage({
             </div>
           </div>
           <div className="relative shrink-0" data-name="dropdown chevron">
-            <div className="box-border content-stretch flex flex-col gap-2 items-start justify-center p-0 relative">
-              <div
-                className="overflow-clip relative shrink-0 size-6"
-                data-name="Icons"
-              >
-                <div className="absolute flex h-[7px] items-center justify-center left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] w-3.5">
-                  <div className="flex-none rotate-[180deg]">
-                    <div className="h-[7px] relative w-3.5" data-name="Vector">
-                      <div
-                        className="absolute bottom-[-7.143%] left-[-3.571%] right-[-3.571%] top-[-7.143%]"
-                        style={
-                          {
-                            "--stroke-0": "rgba(0, 0, 0, 1)",
-                          } as React.CSSProperties
-                        }
-                      >
-                        <svg
-                          className="block size-full"
-                          fill="none"
-                          preserveAspectRatio="none"
-                          viewBox="0 0 16 9"
-                        >
-                          <path
-                            d="M15 8L8 1L1 8"
-                            id="Vector"
-                            stroke="var(--stroke-0, black)"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ChevronDown size={16} />
           </div>
         </div>
       </div>
@@ -270,34 +244,22 @@ function TablerowBackgroundImage() {
       <MultiBrandCommenttextcontainerBackgroundImageAndText text="Love this skincare routine, my skin is gonna glow!" />
       <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey! 🌼 Thanks for being an awesome fan! What's the one item from our collection you can't live without?" />
       <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey! 🌼 Thanks for being an awesome fan! What's the one item from our collection you can't live without?" />
-      <MultiBrandActioncontainerBackgroundImage
-        icon1="[icon: comment-dots]"
-        icon2="[icon: bookmark]"
-        ctaText="POST"
-      />
+      <MultiBrandActioncontainerBackgroundImage ctaText="POST" />
     </BackgroundImage64>
   );
 }
 type MultiBrandActioncontainerBackgroundImageProps = {
-  icon1: string;
-  icon2: string;
   ctaText: string;
 };
 
 function MultiBrandActioncontainerBackgroundImage({
-  icon1,
-  icon2,
   ctaText,
 }: MultiBrandActioncontainerBackgroundImageProps) {
   return (
     <div className="relative shrink-0">
       <div className="box-border content-stretch flex flex-row gap-4 items-center justify-center p-0 relative">
-        <div className="flex flex-col justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[24px] text-left text-nowrap">
-          <p className="block leading-none whitespace-pre">{icon1}</p>
-        </div>
-        <div className="flex flex-col justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[24px] text-left text-nowrap">
-          <p className="block leading-none whitespace-pre">{icon2}</p>
-        </div>
+        <MessageSquare size={24} />
+        <Bookmark size={24} />
         <div
           className="bg-[#000000] h-8 relative rounded-[100px] shrink-0"
           data-name="CTA Button"
@@ -572,36 +534,10 @@ export default function MultiBrand() {
                   <div className="flex flex-row items-center relative size-full">
                     <div className="box-border content-stretch flex flex-row gap-2 h-10 items-center justify-start px-3 py-4 relative w-[246px]">
                       <div
-                        className="relative shrink-0 size-6"
+                        className="relative shrink-0 size-6 flex items-center justify-center"
                         data-name="All Icons/Search/White/24"
                       >
-                        <div
-                          className="absolute h-[19.233px] left-[2.02px] translate-y-[-50%] w-[19.961px]"
-                          data-name="Union"
-                          style={{ top: "calc(50% - 0.00376319px)" }}
-                        >
-                          <div
-                            className="absolute bottom-0 left-0 right-[0.001%] top-0"
-                            style={
-                              {
-                                "--fill-0": "rgba(0, 0, 0, 1)",
-                              } as React.CSSProperties
-                            }
-                          >
-                            <svg
-                              className="block size-full"
-                              fill="none"
-                              preserveAspectRatio="none"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                d="M8.6748 0.0107422C13.0343 0.231579 16.501 3.83665 16.501 8.25098L16.4902 8.6748C16.4017 10.4227 15.7683 12.0263 14.7578 13.3213L19.8145 18.3789L19.8789 18.457C20.0068 18.6511 19.9852 18.9152 19.8145 19.0859C19.6437 19.2566 19.3805 19.2782 19.1865 19.1504L19.1074 19.0859L14.0938 14.0713C12.5999 15.5708 10.5348 16.5009 8.25098 16.501L7.82617 16.4902C3.60728 16.2765 0.224459 12.8937 0.0107422 8.6748L0 8.25098C0 3.69435 3.69435 0 8.25098 0L8.6748 0.0107422ZM8.25098 1C4.24663 1 1 4.24663 1 8.25098C1.00025 12.2551 4.24679 15.501 8.25098 15.501C12.255 15.5007 15.5007 12.255 15.501 8.25098C15.501 4.24679 12.2551 1.00025 8.25098 1Z"
-                                fill="var(--fill-0, black)"
-                                id="Union"
-                              />
-                            </svg>
-                          </div>
-                        </div>
+                        <Search size={20} />
                       </div>
                       <div className="flex flex-col font-['Futura_Std:Book',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-left text-nowrap">
                         <p className="block leading-[1.25] whitespace-pre">
@@ -711,11 +647,7 @@ export default function MultiBrand() {
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="This makeup look is everything, I need to recreate it ASAP!" />
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?" />
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?" />
-                  <MultiBrandActioncontainerBackgroundImage
-                    icon1="[icon: comment-dots]"
-                    icon2="[icon: bookmark]"
-                    ctaText="POST"
-                  />
+                  <MultiBrandActioncontainerBackgroundImage ctaText="POST" />
                 </BackgroundImage64>
                 <BackgroundImage64>
                   <MultiBrandImagecontainerBackgroundImage />
@@ -723,11 +655,7 @@ export default function MultiBrand() {
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="This makeup look is everything, I need to recreate it ASAP!" />
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?" />
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?" />
-                  <MultiBrandActioncontainerBackgroundImage
-                    icon1="[icon: comment-dots]"
-                    icon2="[icon: bookmark]"
-                    ctaText="POST"
-                  />
+                  <MultiBrandActioncontainerBackgroundImage ctaText="POST" />
                 </BackgroundImage64>
                 <BackgroundImage64>
                   <MultiBrandImagecontainerBackgroundImage />
@@ -735,11 +663,7 @@ export default function MultiBrand() {
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="This makeup look is everything, I need to recreate it ASAP!" />
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?" />
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?" />
-                  <MultiBrandActioncontainerBackgroundImage
-                    icon1="[icon: comment-dots]"
-                    icon2="[icon: bookmark]"
-                    ctaText="POST"
-                  />
+                  <MultiBrandActioncontainerBackgroundImage ctaText="POST" />
                 </BackgroundImage64>
                 <BackgroundImage64>
                   <MultiBrandImagecontainerBackgroundImage />
@@ -747,11 +671,7 @@ export default function MultiBrand() {
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="Love this skincare routine, my skin is gonna glow!" />
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey there! 🌼 Thanks for being such an awesome fan! We're super excited to have you here! What's the one item from our collection you can't live without?" />
                   <MultiBrandCommenttextcontainerBackgroundImageAndText text="Hey there! 🌼 Thanks for being such an awesome fan! We're super excited to have you here! What's the one item from our collection you can't live without?" />
-                  <MultiBrandActioncontainerBackgroundImage
-                    icon1="[icon: comment-dots]"
-                    icon2="[icon: bookmark]"
-                    ctaText="POST"
-                  />
+                  <MultiBrandActioncontainerBackgroundImage ctaText="POST" />
                 </BackgroundImage64>
                 <TablerowBackgroundImage />
                 <TablerowBackgroundImage />
@@ -771,19 +691,7 @@ export default function MultiBrand() {
                     >
                       <div className="box-border content-stretch flex flex-row gap-4 items-center justify-start p-0 relative">
                         <SelectorsBackgroundImage>
-                          <div
-                            className="absolute flex h-[8.842px] items-center justify-center left-1/2 translate-x-[-50%] translate-y-[-50%] w-3"
-                            style={{ top: "calc(50% + 0.00105429px)" }}
-                          >
-                            <div className="flex-none rotate-[180deg] scale-y-[-100%]">
-                              <div
-                                className="h-[8.842px] relative w-3"
-                                data-name="Vector"
-                              >
-                                <MultiBrandBackgroundImage />
-                              </div>
-                            </div>
-                          </div>
+                          <ChevronLeft size={16} />
                         </SelectorsBackgroundImage>
                         <div
                           className="bg-[#dce0f4] h-8 relative rounded shrink-0"
@@ -829,13 +737,7 @@ export default function MultiBrand() {
                           <MultiBrandBackgroundImageAndText3 text="4185" />
                         </div>
                         <SelectorsBackgroundImage>
-                          <div
-                            className="absolute h-[8.842px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-3"
-                            data-name="Vector"
-                            style={{ top: "calc(50% + 0.00105429px)" }}
-                          >
-                            <MultiBrandBackgroundImage />
-                          </div>
+                          <ChevronRight size={16} />
                         </SelectorsBackgroundImage>
                       </div>
                     </div>
@@ -851,37 +753,10 @@ export default function MultiBrand() {
                           </p>
                         </div>
                         <div
-                          className="overflow-clip relative shrink-0 size-4"
+                          className="overflow-clip relative shrink-0 size-4 flex items-center justify-center"
                           data-name="Icons"
                         >
-                          <div
-                            className="absolute flex h-[4.667px] items-center justify-center translate-x-[-50%] translate-y-[-50%] w-[9.333px]"
-                            style={{
-                              top: "calc(50% + 0.66667px)",
-                              left: "calc(50% + 0.00333262px)",
-                            }}
-                          >
-                            <MultiBrandBackgroundImage2>
-                              <div
-                                className="absolute bottom-[-10.714%] left-[-5.357%] right-[-5.357%] top-[-10.714%]"
-                                style={
-                                  {
-                                    "--stroke-0": "rgba(0, 0, 0, 1)",
-                                  } as React.CSSProperties
-                                }
-                              >
-                                <MultiBrandBackgroundImage3>
-                                  <path
-                                    d="M10.3333 5.66667L5.66667 1L1 5.66667"
-                                    id="Vector"
-                                    stroke="var(--stroke-0, black)"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </MultiBrandBackgroundImage3>
-                              </div>
-                            </MultiBrandBackgroundImage2>
-                          </div>
+                          <ChevronDown size={16} />
                         </div>
                       </MultiBrandBackgroundImage1>
                     </div>

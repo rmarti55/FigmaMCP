@@ -64,7 +64,7 @@ function DropdownlistboxBackgroundImage({
             data-name="Swatch & Text"
           >
             <div className="box-border content-stretch flex flex-row gap-1.5 items-center justify-start p-0 relative w-full">
-              <div className="basis-0 flex flex-col font-['Futura_Std:Book',_sans-serif] grow h-full justify-center leading-[0] min-h-px min-w-px not-italic relative shrink-0 text-[#000000] text-[14px] text-left">
+              <div className="basis-0 flex flex-col font-sans grow h-full justify-center leading-[0] min-h-px min-w-px not-italic relative shrink-0 text-[#000000] text-[14px] text-left">
                 <p className="block leading-[1.25]">{text}</p>
               </div>
             </div>
@@ -166,7 +166,7 @@ function BackgroundImage12({ children }: React.PropsWithChildren<{}>) {
   return (
     <div className="basis-0 grow min-h-px min-w-px relative shrink-0">
       <div className="box-border content-stretch flex flex-row gap-2.5 items-center justify-center p-0 relative w-full">
-        <div className="basis-0 flex flex-col font-['Futura_Std:Book',_sans-serif] grow justify-center leading-[0] min-h-px min-w-px not-italic relative shrink-0 text-[#000000] text-[12px] text-left tracking-[0.12px]">
+        <div className="basis-0 flex flex-col font-sans grow justify-center leading-[0] min-h-px min-w-px not-italic relative shrink-0 text-[#000000] text-[12px] text-left tracking-[0.12px]">
           <p className="block leading-[1.25]">{children}</p>
         </div>
       </div>
@@ -189,7 +189,7 @@ function BackgroundImageAndText({
         additionalClassNames,
       )}
     >
-      <div className="font-['Futura_Std:Book',_sans-serif] leading-[0] not-italic relative shrink-0 text-[#000000] text-[16px] text-left text-nowrap">
+      <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#000000] text-[16px] text-left text-nowrap">
         <p className="block leading-[1.25] whitespace-pre">{text}</p>
       </div>
     </div>
@@ -266,7 +266,7 @@ function MultiBrandActioncontainerBackgroundImage({
         >
           <div className="flex flex-row items-center justify-center relative size-full">
             <div className="box-border content-stretch flex flex-row gap-3 h-8 items-center justify-center px-4 py-0 relative">
-              <div className="font-['Futura_Std:Bold',_sans-serif] leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[14px] text-center text-nowrap tracking-[0.84px] uppercase">
+              <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[14px] text-center text-nowrap tracking-[0.84px] uppercase">
                 <p className="adjustLetterSpacing block leading-[1.25] whitespace-pre">
                   {ctaText}
                 </p>
@@ -311,7 +311,7 @@ function MultiBrandTdBackgroundImageAndText({
 }: MultiBrandTdBackgroundImageAndTextProps) {
   return (
     <BackgroundImage79>
-      <div className="basis-0 flex flex-col font-['Futura_Std:Bold',_sans-serif] grow justify-center leading-[0] min-h-px min-w-px not-italic relative shrink-0 text-[#000000] text-[14px] text-left">
+      <div className="basis-0 flex flex-col font-sans grow justify-center leading-[0] min-h-px min-w-px not-italic relative shrink-0 text-[#000000] text-[14px] text-left">
         <p className="block leading-[1.25]">{text}</p>
       </div>
     </BackgroundImage79>
@@ -327,7 +327,7 @@ function MultiBrandBackgroundImageAndText1({
   return (
     <div className="flex flex-row items-center justify-center relative size-full">
       <BackgroundImage50 additionalClassNames={["px-5"]}>
-        <div className="flex flex-col font-['Futura_Std:Book',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-center text-nowrap">
+        <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-center text-nowrap">
           <p className="block leading-[1.25] whitespace-pre">{text}</p>
         </div>
       </BackgroundImage50>
@@ -364,7 +364,7 @@ export default function MultiBrand() {
                         >
                           <div className="flex flex-row justify-center relative size-full">
                             <div className="box-border content-stretch flex flex-row gap-2 items-start justify-center pb-1 pt-0 px-0 relative">
-                              <div className="flex flex-col font-['Futura_Std:Bold',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[32px] text-left text-nowrap tracking-[-0.64px]">
+                              <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[32px] text-left text-nowrap tracking-[-0.64px]">
                                 <p className="adjustLetterSpacing block leading-[1.2] whitespace-pre">
                                   e.l.f. Skin
                                 </p>
@@ -419,7 +419,7 @@ export default function MultiBrand() {
                       className="basis-0 grow h-[42px] min-h-px min-w-px relative shrink-0"
                       data-name="Tertiary Links"
                     >
-                      <div className="box-border content-stretch flex flex-row font-['Futura_Std:Bold',_sans-serif] gap-10 h-[42px] items-center justify-end leading-[0] not-italic p-0 relative text-[#000000] text-[14px] text-left text-nowrap tracking-[0.84px] uppercase w-full">
+                      <div className="box-border content-stretch flex flex-row font-sans gap-10 h-[42px] items-center justify-end leading-[0] not-italic p-0 relative text-[#000000] text-[14px] text-left text-nowrap tracking-[0.84px] uppercase w-full">
                         <BackgroundImageAndText text="Home" />
                         <BackgroundImage123>
                           <p className="leading-[1.25] text-nowrap whitespace-pre">
@@ -442,7 +442,7 @@ export default function MultiBrand() {
                       data-name="Filter Chips"
                     >
                       <MultiBrandBackgroundImage1>
-                        <div className="flex flex-col font-['Futura_Std:Book',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[14px] text-center text-nowrap">
+                        <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[14px] text-center text-nowrap">
                           <p className="block leading-[1.25] whitespace-pre">
                             Instagram
                           </p>
@@ -539,7 +539,7 @@ export default function MultiBrand() {
                       >
                         <Search size={20} />
                       </div>
-                      <div className="flex flex-col font-['Futura_Std:Book',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-left text-nowrap">
+                      <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-left text-nowrap">
                         <p className="block leading-[1.25] whitespace-pre">
                           Search Comment
                         </p>
@@ -590,7 +590,7 @@ export default function MultiBrand() {
                     >
                       <div className="flex flex-row items-center justify-center overflow-clip relative size-full">
                         <div className="box-border content-stretch flex flex-row items-center justify-center px-4 py-[7px] relative">
-                          <div className="font-['Futura_Std:Bold',_sans-serif] leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-center text-nowrap tracking-[0.84px] uppercase">
+                          <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-center text-nowrap tracking-[0.84px] uppercase">
                             <p className="adjustLetterSpacing block leading-[1.25] whitespace-pre">
                               REFRESH
                             </p>
@@ -615,7 +615,7 @@ export default function MultiBrand() {
                     <div className="box-border content-stretch flex flex-row gap-6 items-start justify-start p-[12px] relative w-full">
                       <div className="relative shrink-0" data-name="td">
                         <div className="box-border content-stretch flex flex-row gap-3 items-center justify-start p-0 relative">
-                          <div className="flex flex-col font-['Futura_Std:Bold',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-left text-nowrap">
+                          <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-left text-nowrap">
                             <p className="block leading-[1.25] whitespace-pre">
                               Post Image
                             </p>
@@ -626,7 +626,7 @@ export default function MultiBrand() {
                       <MultiBrandTdBackgroundImageAndText text="Comment" />
                       <MultiBrandTdBackgroundImageAndText text="AI Response" />
                       <BackgroundImage79>
-                        <div className="flex flex-col font-['Futura_Std:Bold',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-left w-[224.87px]">
+                        <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-left w-[224.87px]">
                           <p className="block leading-[1.25]">
                             Edited/Posted Response
                           </p>
@@ -747,7 +747,7 @@ export default function MultiBrand() {
                     >
                       <div className="absolute border border-[#000000] border-solid inset-0 pointer-events-none rounded-[35px]" />
                       <MultiBrandBackgroundImage1>
-                        <div className="flex flex-col font-['Futura_Std:Book',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-center text-nowrap">
+                        <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[14px] text-center text-nowrap">
                           <p className="block leading-[1.25] whitespace-pre">
                             10 / page
                           </p>

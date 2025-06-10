@@ -12,11 +12,12 @@
   },
   "dependencies": {
     "@figma/code-connect": "^1.3.3",
+    "@storybook/blocks": "^9.0.0-alpha.17",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.513.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@storybook/blocks": "^9.0.0-alpha.17"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.0.0",

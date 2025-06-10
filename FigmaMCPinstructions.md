@@ -58,6 +58,18 @@ This section captures key learnings from our development process to ensure we wo
 **Root Cause:** Frameworks like Storybook manage their own internal dependencies. Manually adding addon packages to `package.json` can conflict with the versions the core `storybook` package expects, leading to build failures in a clean CI/CD environment like Vercel.
 
 **Solution & Rule for the Future:**
-*   **Stop and Research:** If a dependency-related fix fails more than once, I will stop and consult the official documentation for the framework in question.
+*   **Stop and Research:** If a dependency-related fix fails more than once, I will stop and consult the official documentation for the framework in question or the package manager (`npm`) for ground-truth data.
 *   **Trust the Framework:** Assume the primary package (e.g., `storybook`) handles its own core dependencies. Do not manually add sub-dependencies unless the official documentation explicitly says to.
-*   **The Fix:** The correct solution was to remove the manually added, conflicting addons and let the primary `storybook` package manage them. The specific Vercel build issue was resolved by adding `@storybook/blocks`, as per the Storybook v9 documentation. 
+*   **The Fix:** The correct solution was to remove the manually added, conflicting addons and let the primary `storybook` package manage them. The specific Vercel build issue was resolved by adding `@storybook/blocks`, as per the Storybook v9 documentation.
+
+### 2. The "ETARGET" Error: A Case Study in Our Process
+
+**Problem:** Immediately after the previous fix, the Vercel build failed again with `npm ERR! notarget No matching version found for @storybook/blocks@^9.0.5`.
+
+**Process in Action:** This time, I followed our new rules perfectly.
+1.  **Stop:** I did not guess a new version number.
+2.  **Research:** I immediately ran `npm view @storybook/blocks versions` to see all valid, published versions of the package.
+3.  **Analyze:** The command revealed that `9.0.5` did not exist and that the latest versions were `9.0.0-alpha.*`. A quick check of `package.json` showed all other Storybook packages were also incorrectly set to `9.0.5`.
+4.  **Execute:** I made a single, precise edit to `package.json`, aligning all `storybook` packages to the latest valid alpha version.
+
+**Result:** The build succeeded on the very next push. This confirms the value of a systematic, data-driven approach over reactive guessing. This is our new standard. 

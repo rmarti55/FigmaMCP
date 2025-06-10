@@ -101,4 +101,12 @@ This section documents the rules I must follow for my own internal processes to 
 
 **Cause:** A faulty "mental shortcut" where I attempt to call the tool with only the file path, forgetting its specific argument signature.
 
-**Directive:** I must always specify *how* to read the file. My default action for every `read_file` call will be to include `should_read_entire_file: true`. I will only use a line range if there is a specific, stated reason to do so (e.g., analyzing a specific part of a very large file). This prevents invalid calls and makes my actions more predictable and reliable. 
+**Directive:** I must always specify *how* to read the file. My default action for every `read_file` call will be to include `should_read_entire_file: true`. I will only use a line range if there is a specific, stated reason to do so (e.g., analyzing a specific part of a very large file). This prevents invalid calls and makes my actions more predictable and reliable.
+
+### 2. Ensuring Storybook Code Visibility
+
+**Problem:** The source code preview disappeared for our `FilterButtonGroup` organism after we refactored it.
+
+**Cause:** Storybook's `autodocs` can automatically generate code snippets for simple stories defined with `args`. However, for complex components that use a custom `render` function in their story, Storybook does not know what source code to display by default.
+
+**Directive:** Every component story must have a visible code example. If a story uses a `render` function, I must explicitly provide the source code via the `parameters.docs.source.code` property in the story definition. This guarantees our component documentation is always complete and useful. 

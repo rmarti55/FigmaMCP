@@ -83,4 +83,17 @@ This section captures key learnings from our development process to ensure we wo
 *   `Design System/Molecules/[ComponentName]` for simple groups of Atoms (e.g., a search form with an Input and a Button).
 *   `Design System/Organisms/[ComponentName]` for complex components that compose multiple Atoms and Molecules (e.g., Header, Sidebars, Dashboards).
 
-**Rule:** I will adhere to this structure for all new components and will refactor existing components as needed. I will not create arbitrary top-level folders. 
+**Rule:** I will adhere to this structure for all new components and will refactor existing components as needed. I will not create arbitrary top-level folders.
+
+---
+## My Core Directives (Agent Best Practices)
+
+This section documents the rules I must follow for my own internal processes to ensure I am an efficient and reliable partner.
+
+### 1. Using the `read_file` Tool Correctly
+
+**Problem:** I have repeatedly made invalid calls to the `read_file` tool by omitting required arguments.
+
+**Cause:** A faulty "mental shortcut" where I attempt to call the tool with only the file path, forgetting its specific argument signature.
+
+**Directive:** I must always specify *how* to read the file. My default action for every `read_file` call will be to include `should_read_entire_file: true`. I will only use a line range if there is a specific, stated reason to do so (e.g., analyzing a specific part of a very large file). This prevents invalid calls and makes my actions more predictable and reliable. 

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import clsx from "clsx";
+import { ChevronDown } from 'lucide-react';
 
 // --- Sub-Components used only by Header ---
 
@@ -30,14 +31,41 @@ function BackgroundImageAndText({
 // --- Main Header Component ---
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const brands = ["e.l.f. Skin", "e.l.f. Cosmetics", "Well People", "Keys Soul Care", "Naturium", "Rhode"];
+  const [selectedBrand, setSelectedBrand] = useState(brands[0]);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
+
+
+  const handleSelectBrand = (brand: string) => {
+    setSelectedBrand(brand);
+    setIsOpen(false);
+  }
+
   return (
     <div className="relative shrink-0 w-full" data-name="Platform">
       <div className="box-border content-stretch flex flex-row gap-6 items-start justify-start p-0 relative w-full">
         <div
-          className="h-[42px] relative shrink-0"
+          className="h-[42px] relative"
           data-name="Platform Dropdown"
+          ref={dropdownRef}
         >
-          <div className="box-border content-stretch flex flex-row gap-2 h-[42px] items-center justify-start p-0 relative">
+          <div
+            className="box-border content-stretch flex flex-row gap-2 h-[42px] items-center justify-start p-0 relative cursor-pointer"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             <div
               className="relative shrink-0"
               data-name="Mega Tabs"
@@ -46,54 +74,36 @@ export default function Header() {
                 <div className="box-border content-stretch flex flex-row gap-2 items-start justify-center pb-1 pt-0 px-0 relative">
                   <div className="flex flex-col font-sans justify-center leading-[0] not-italic relative shrink-0 text-[#000000] text-[32px] text-left text-nowrap tracking-[-0.64px]">
                     <p className="adjustLetterSpacing block leading-[1.2] whitespace-pre">
-                      e.l.f. Skin
+                      {selectedBrand}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
             <div
-              className="overflow-clip relative shrink-0 size-10"
-              data-name="Icons"
+              className={clsx("transition-transform duration-200", {"rotate-180": isOpen})}
             >
-              <div
-                className="absolute flex h-[11.667px] items-center justify-center left-1/2 translate-x-[-50%] translate-y-[-50%] w-[23.333px]"
-                style={{ top: "calc(50% - 0.0333343px)" }}
-              >
-                <div className="flex-none rotate-[180deg]">
-                  <div
-                    className="h-[11.667px] relative w-[23.333px]"
-                    data-name="Vector"
-                  >
-                    <div
-                      className="absolute bottom-[-8.571%] left-[-4.286%] right-[-4.286%] top-[-8.571%]"
-                      style={
-                        {
-                          "--stroke-0": "rgba(0, 0, 0, 1)",
-                        } as React.CSSProperties
-                      }
-                    >
-                      <svg
-                        className="block size-full"
-                        fill="none"
-                        preserveAspectRatio="none"
-                        viewBox="0 0 26 14"
-                      >
-                        <path
-                          d="M24.3333 12.6667L12.6667 1L1 12.6667"
-                          id="Vector"
-                          stroke="var(--stroke-0, black)"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ChevronDown size={32} />
             </div>
           </div>
+          {isOpen && (
+            <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl z-10">
+              <ul>
+                {brands.map((brand) => (
+                  <li
+                    key={brand}
+                    className={clsx(
+                      "px-4 py-3 hover:bg-gray-100 cursor-pointer text-lg",
+                      { "font-bold bg-gray-100": brand === selectedBrand }
+                    )}
+                    onClick={() => handleSelectBrand(brand)}
+                  >
+                    {brand}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
         <div
           className="basis-0 grow h-[42px] min-h-px min-w-px relative shrink-0"

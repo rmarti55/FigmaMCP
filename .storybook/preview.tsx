@@ -3,13 +3,6 @@ import React from 'react';
 import '../src/index.css'
 
 const preview: Preview = {
-  decorators: [
-    (Story) => (
-      <div className="font-sans">
-        <Story />
-      </div>
-    ),
-  ],
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',

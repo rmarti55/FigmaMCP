@@ -9,7 +9,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import Header from './Header';
+import Header from '../Header';
 
 // This is a complex component generated from Figma.
 // It has been broken down into smaller sub-components for clarity and reusability.

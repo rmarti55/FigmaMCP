@@ -6,7 +6,7 @@ import { SearchInput } from './SearchInput';
 export function FilterBar() {
   return (
     <div className="p-4 bg-gray-50 border rounded-lg w-full">
-      <div className="flex items-center flex-wrap gap-2">
+      <div className="flex items-center flex-wrap gap-2 w-full">
         <SearchInput />
         <DropdownButton buttonVariant="rectangular" items={['Search Post']} />
         <DropdownButton buttonVariant="rectangular" items={['Show Bookmarked', 'Show All']} />

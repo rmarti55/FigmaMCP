@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { Button } from './Button';
+import { Button, ButtonProps } from './Button';
 
 type DropdownButtonProps = {
   items: string[];
+  buttonVariant?: ButtonProps['variant'];
 };
 
-export function DropdownButton({ items }: DropdownButtonProps) {
+export function DropdownButton({ items, buttonVariant = 'dark' }: DropdownButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(items[0] || 'Select');
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -27,9 +28,15 @@ export function DropdownButton({ items }: DropdownButtonProps) {
     setIsOpen(false);
   };
 
+  const isRectangular = buttonVariant === 'rectangular';
+
   return (
     <div className="relative inline-block text-left" ref={dropdownRef}>
-      <Button variant="dark" className="pl-5 pr-3" onClick={() => setIsOpen(!isOpen)}>
+      <Button
+        variant={buttonVariant}
+        className={isRectangular ? 'w-40 justify-between h-10 px-3' : 'pl-5 pr-3'}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {selectedItem}
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}

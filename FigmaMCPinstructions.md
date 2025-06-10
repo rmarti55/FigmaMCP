@@ -109,4 +109,19 @@ This section documents the rules I must follow for my own internal processes to 
 
 **Cause:** Storybook's `autodocs` can automatically generate code snippets for simple stories defined with `args`. However, for complex components that use a custom `render` function in their story, Storybook does not know what source code to display by default.
 
-**Directive:** Every component story must have a visible code example. If a story uses a `render` function, I must explicitly provide the source code via the `parameters.docs.source.code` property in the story definition. This guarantees our component documentation is always complete and useful. 
+**Directive:** Every component story must have a visible code example. If a story uses a `render` function, I must explicitly provide the source code via the `parameters.docs.source.code` property in the story definition. This guarantees our component documentation is always complete and useful.
+
+---
+## Our Proven Workflow: A Summary
+
+Our collaboration has evolved into a highly effective, systematic process. This is the workflow we will apply to all future tasks.
+
+1.  **Define the Goal:** Clearly state the objective (e.g., "create an interactive filter button group").
+2.  **Scaffold the Primitives (Atoms):** Identify and build the smallest, reusable building blocks first (e.g., the `Button`, the `DropdownButton`).
+3.  **Refine with the Source of Truth:** Use the Figma MCP server to get precise styling and structural data. Apply this data to the Atoms to ensure they are pixel-perfect.
+4.  **Compose into Complex Components (Organisms):** Assemble the refined Atoms into a larger, functional component that fulfills the goal (e.g., the `FilterButtonGroup`). This is where context and layout are defined.
+5.  **Add Interactivity:** Introduce state management (`useState`) and event handlers (`onClick`) to bring the Organism to life.
+6.  **Perfect the Documentation:** Ensure the final component is correctly categorized in our Atomic Design structure and has a visible, accurate code example in Storybook, using the `parameters.docs.source.code` property if necessary.
+7.  **Troubleshoot Systematically:** If any step fails, apply the "Stop, Research, Analyze, Execute" doctrine. Do not loop on reactive fixes.
+
+By following this process, we ensure our work is always high-quality, scalable, and built on a solid foundation. 

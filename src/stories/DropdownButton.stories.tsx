@@ -29,5 +29,13 @@ const socialMediaPlatforms = [
 export const Default: Story = {
   args: {
     items: socialMediaPlatforms,
+    buttonVariant: 'dark',
+  },
+};
+
+export const Rectangular: Story = {
+  args: {
+    items: ['Show All', 'Show Bookmarked'],
+    buttonVariant: 'rectangular',
   },
 }; 

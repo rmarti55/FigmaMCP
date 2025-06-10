@@ -81,7 +81,12 @@ This section captures key learnings from our development process to ensure we wo
 **Structure:** We will use the following path structure in the `title` of our Storybook stories:
 *   `Design System/Atoms/[ComponentName]` for basic, indivisible components (e.g., Button, Input, Label).
 *   `Design System/Molecules/[ComponentName]` for simple groups of Atoms (e.g., a search form with an Input and a Button).
-*   `Design System/Organisms/[ComponentName]` for complex components that compose multiple Atoms and Molecules (e.g., Header, Sidebars, Dashboards).
+*   `Design System/Organisms/[ComponentName]` for complex components that compose multiple Atoms and Molecules (e.g., Header, Sidebars, `FilterButtonGroup`).
+
+**The "Why": Our Rationale for This Structure**
+This hierarchy is crucial for scalability and maintainability. Here is how we define the levels:
+*   **Atoms (e.g., `Button`):** These are the fundamental, context-agnostic building blocks. They cannot be broken down further without losing their meaning. An Atom doesn't know *why* it's being used, only *what* it is.
+*   **Molecules & Organisms (e.g., `FilterButtonGroup`):** These components are what give Atoms a purpose. They are defined by **composition** and **context**. The `FilterButtonGroup` is an Organism because it is composed of multiple `Button` Atoms, arranges them in a specific layout, and gives them a single, collective function (filtering). By separating them, we can modify the base Atom and have it update everywhere, while also being able to reuse the complex Organism as a single unit.
 
 **Rule:** I will adhere to this structure for all new components and will refactor existing components as needed. I will not create arbitrary top-level folders.
 

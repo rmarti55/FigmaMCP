@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { ChevronDown } from 'lucide-react';
 import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
@@ -8,17 +9,17 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['default', 'selected'],
+      options: ['default', 'selected', 'dark'],
     },
     size: {
       control: { type: 'select' },
       options: ['default', 'sm', 'lg'],
     },
     disabled: {
-      control: { type: 'boolean' },
+      control: 'boolean',
     },
     children: {
-      control: { type: 'text' },
+      control: 'text',
     },
   },
 };
@@ -30,7 +31,6 @@ export const Default: Story = {
   args: {
     children: 'Default Button',
     variant: 'default',
-    disabled: false,
   },
 };
 
@@ -38,7 +38,13 @@ export const Selected: Story = {
   args: {
     children: 'Selected Button',
     variant: 'selected',
-    disabled: false,
+  },
+};
+
+export const Dark: Story = {
+  args: {
+    children: 'Dark Button',
+    variant: 'dark',
   },
 };
 
@@ -50,16 +56,19 @@ export const Disabled: Story = {
   },
 };
 
-export const Showcase: Story = {
+export const FilterButtonGroup: Story = {
+  name: 'Filter Button Group',
   render: () => (
-    <div className="flex items-center gap-4">
-      <Button variant="default">Comments</Button>
-      <Button variant="default">Ads</Button>
-      <Button variant="selected">All Posts</Button>
-      <Button variant="default">Earned Media</Button>
-      <Button variant="default" disabled>
-        Statistics
+    <div className="flex flex-row gap-2 items-center p-4 bg-gray-50 rounded-lg">
+      <Button variant="dark">
+        Instagram
+        <ChevronDown className="h-4 w-4 ml-1 stroke-current" />
       </Button>
+      <Button variant="selected">Comments</Button>
+      <Button variant="default">Ads</Button>
+      <Button variant="default">All Posts</Button>
+      <Button variant="default">Earned Media</Button>
+      <Button variant="default">Statistics</Button>
     </div>
   ),
 }; 

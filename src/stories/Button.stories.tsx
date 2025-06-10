@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: 'Design System/Atoms/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {

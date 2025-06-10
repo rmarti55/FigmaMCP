@@ -72,4 +72,15 @@ This section captures key learnings from our development process to ensure we wo
 3.  **Analyze:** The command revealed that `9.0.5` did not exist and that the latest versions were `9.0.0-alpha.*`. A quick check of `package.json` showed all other Storybook packages were also incorrectly set to `9.0.5`.
 4.  **Execute:** I made a single, precise edit to `package.json`, aligning all `storybook` packages to the latest valid alpha version.
 
-**Result:** The build succeeded on the very next push. This confirms the value of a systematic, data-driven approach over reactive guessing. This is our new standard. 
+**Result:** The build succeeded on the very next push. This confirms the value of a systematic, data-driven approach over reactive guessing. This is our new standard.
+
+### 3. Storybook Component Hierarchy
+
+**Principle:** All components must be organized according to a consistent, logical hierarchy based on Atomic Design principles. This ensures our Storybook is clean, scalable, and easy to navigate.
+
+**Structure:** We will use the following path structure in the `title` of our Storybook stories:
+*   `Design System/Atoms/[ComponentName]` for basic, indivisible components (e.g., Button, Input, Label).
+*   `Design System/Molecules/[ComponentName]` for simple groups of Atoms (e.g., a search form with an Input and a Button).
+*   `Design System/Organisms/[ComponentName]` for complex components that compose multiple Atoms and Molecules (e.g., Header, Sidebars, Dashboards).
+
+**Rule:** I will adhere to this structure for all new components and will refactor existing components as needed. I will not create arbitrary top-level folders. 

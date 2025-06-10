@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import MultiBrand from './MultiBrand';
+import MultiBrand from './MultiBrand/index';
 
 const meta: Meta<typeof MultiBrand> = {
   component: MultiBrand,

@@ -38,4 +38,11 @@ export const Rectangular: Story = {
     items: ['Show All', 'Show Bookmarked'],
     buttonVariant: 'rectangular',
   },
+};
+
+export const WithLongText: Story = {
+  args: {
+    ...Rectangular.args,
+    items: ['Comment Posted Time is a very long piece of text that should be truncated'],
+  },
 }; 

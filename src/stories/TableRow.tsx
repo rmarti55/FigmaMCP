@@ -20,7 +20,17 @@ export function TableRow({ rowData }: TableRowProps) {
     <tr className="border-b border-gray-200">
       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
         <div className="h-10 w-10 flex-shrink-0">
-          <img className="h-10 w-10 rounded-full" src={rowData.postImage} alt="" />
+          <img
+            className="h-10 w-10 rounded-full"
+            src={rowData.postImage || `https://ui-avatars.com/api/?name=User&background=random&size=40`}
+            alt=""
+            onError={e => {
+              const target = e.currentTarget;
+              if (!target.src.includes('ui-avatars.com')) {
+                target.src = `https://ui-avatars.com/api/?name=User&background=random&size=40`;
+              }
+            }}
+          />
         </div>
       </td>
       <td className="py-4 px-3 text-sm text-gray-500 max-w-xs">{rowData.postBody}</td>

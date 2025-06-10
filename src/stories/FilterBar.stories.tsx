@@ -8,6 +8,9 @@ const meta: Meta<typeof FilterBar> = {
   parameters: {
     layout: 'fullscreen',
   },
+  globals: {
+    viewport: { value: 'ipad12p', isRotated: false },
+  },
 };
 
 export default meta;

@@ -4,7 +4,7 @@ import Header from './Header';
 
 const meta: Meta<typeof Header> = {
   component: Header,
-  title: 'Components/MultiBrand/Header',
+  title: 'BF Elfuencer/Header',
 };
 
 export default meta;

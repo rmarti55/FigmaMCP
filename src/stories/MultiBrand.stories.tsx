@@ -4,7 +4,7 @@ import MultiBrand from './MultiBrand/index';
 
 const meta: Meta<typeof MultiBrand> = {
   component: MultiBrand,
-  title: 'Components/MultiBrand',
+  title: 'BF Elfuencer/MultiBrand',
 };
 
 export default meta;

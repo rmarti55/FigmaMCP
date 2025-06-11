@@ -3,15 +3,15 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { clsx } from 'clsx';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-[35px] text-sm font-normal transition-colors border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap truncate',
+  'inline-flex items-center justify-center text-sm font-normal transition-colors border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap truncate',
   {
     variants: {
       variant: {
-        default: 'bg-white hover:bg-neutral-100 text-black border-[#c3c5d0]',
+        default: 'bg-white hover:bg-neutral-100 text-black border-[#c3c5d0] rounded-[35px]',
         selected:
-          'bg-[#dce0f4] text-black hover:bg-indigo-200 border-[#dce0f4]',
-        dark: 'bg-black text-white hover:bg-neutral-800 border-transparent',
-        rectangular: 'bg-white hover:bg-neutral-100 text-black border-neutral-400',
+          'bg-[#dce0f4] text-black hover:bg-indigo-200 border-[#dce0f4] rounded-[35px]',
+        dark: 'bg-black text-white hover:bg-neutral-800 border-transparent rounded-[35px]',
+        rectangular: 'bg-white hover:bg-neutral-100 text-black border-neutral-400 rounded-md',
       },
       size: {
         default: 'h-8 px-5 py-[7px] text-[14px]',
@@ -32,15 +32,9 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
-    // Determine if the variant is rectangular to apply different border-radius
-    const isRectangular = variant === 'rectangular';
-    const borderRadiusClass = isRectangular ? 'rounded-md' : 'rounded-[35px]';
-
     return (
       <button
         className={clsx(
-          'inline-flex items-center justify-center text-sm font-normal transition-colors border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
-          borderRadiusClass,
           buttonVariants({ variant, size, className }),
         )}
         ref={ref}

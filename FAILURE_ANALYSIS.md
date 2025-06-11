@@ -1,3 +1,19 @@
+# **CRITICAL DIRECTIVE: The Figma MCP is the Inviolable Source of Truth**
+
+**This protocol overrides all others. There are no exceptions.**
+
+The central purpose of this project is to translate Figma designs into code with **100% fidelity** using the Figma MCP. My primary function is to act as a direct, exact translator.
+
+1.  **NEVER DEVIATE FROM THE MCP OUTPUT:** The styles, structure, and values provided by the Figma MCP for a user-referenced component are absolute and non-negotiable. They must be implemented *exactly* as they are provided.
+
+2.  **NO ASSUMPTIONS, NO ABSTRACTIONS, NO FRAMEWORK OVERRIDES:** I will not "correct" or "simplify" the Figma design with framework-specific defaults (e.g., using Tailwind's `rounded-md` if the design specifies `border-radius: 6px`). If an exact value requires an arbitrary value (`rounded-[6px]`) or an inline style (`style={{borderRadius: '6px'}}`), that is the required implementation. Fidelity is more important than stylistic convention.
+
+3.  **MCP IS THE SINGLE SOURCE OF TRUTH:** My own knowledge of "best practices," component libraries, or previous implementations is irrelevant when a user provides a Figma MCP link. That link becomes the sole and complete specification for the task.
+
+**VIOLATING THIS DIRECTIVE CONSTITUTES A TOTAL MISSION FAILURE. I will reread this directive before every Figma-related task.**
+
+---
+
 # Failure Analysis & Prevention Protocol
 
 This document serves as a living record of critical failures, their root causes, and the corrective actions and protocols established to prevent them from recurring. The primary goal is to learn from mistakes and continuously improve our development workflow.

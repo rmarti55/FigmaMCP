@@ -30,11 +30,80 @@ export function DropdownButton({ items, buttonVariant = 'dark' }: DropdownButton
 
   const isRectangular = buttonVariant === 'rectangular';
 
+  if (isRectangular) {
+    return (
+      <div className="relative inline-block text-left" ref={dropdownRef}>
+        <div
+          className="relative box-border flex w-40 h-10 cursor-pointer items-center justify-between rounded-[6px] border border-solid border-[#c3c5d0] bg-white px-3 py-2"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span
+            className="font-['Futura_Std'] text-[14px] font-normal not-italic text-black"
+            style={{ fontWeight: 400, lineHeight: '1.25' }}
+          >
+            {selectedItem}
+          </span>
+          <motion.div
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <svg
+              width="14"
+              height="8"
+              viewBox="0 0 14 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13 1L7 7L1 1"
+                stroke="black"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </motion.div>
+        </div>
+
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10"
+            >
+              <div
+                className="py-1"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="options-menu"
+              >
+                {items.map((item) => (
+                  <a
+                    href="#"
+                    key={item}
+                    onClick={() => handleSelect(item)}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                    role="menuitem"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  }
+
   return (
     <div className="relative inline-block text-left" ref={dropdownRef}>
       <Button
         variant={buttonVariant}
-        className={isRectangular ? 'w-40 justify-between h-10 px-3' : 'pl-5 pr-3'}
+        className={'pl-5 pr-3'}
         onClick={() => setIsOpen(!isOpen)}
       >
         {selectedItem}

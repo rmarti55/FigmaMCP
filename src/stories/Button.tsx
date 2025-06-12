@@ -32,10 +32,11 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
+    const finalSize = variant === 'rectangular' ? null : size;
     return (
       <button
         className={clsx(
-          buttonVariants({ variant, size, className }),
+          buttonVariants({ variant, size: finalSize, className }),
         )}
         ref={ref}
         {...props}

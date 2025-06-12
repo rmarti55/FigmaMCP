@@ -132,6 +132,20 @@ The MCP server does not always provide 100% of the required information in a sin
 *   **The Screenshot is Ground Truth:** A provided screenshot must be treated as a primary source for recreating missing assets. We will manually and precisely recreate SVGs or find image URLs based on the screenshot.
 *   **No Hallucination:** We will never guess, use placeholders, or invent assets when data is missing. We will either extract them from a more specific query or recreate them from visual evidence. If the visual evidence is insufficient, we must ask for clarification.
 
+#### **3. Advanced Data Interpretation**
+
+##### **ZERO-VALUE INTERPRETATION RULE**
+
+If the Figma MCP output omits a style key (e.g., `border-radius`) and the component visibly reflects the default value in the Figma inspector (e.g., `0`), I MUST interpret this as an intentional signal for the CSS default, NOT as an invitation to hallucinate a new value.
+
+*   I will **not** create or apply any speculative or invented value.
+*   If a visual inspection of the Figma inspector confirms that the value is `0`, then `border-radius: 0` (or the framework equivalent) must be applied.
+*   Any other inferred or improvised value (e.g. `border-radius: 6px`) is a fidelity failure.
+
+##### **SPECULATIVE VALUE GUARDRAIL**
+
+The instruction "do not assume anything" does not authorize the generation of speculative values. If no data is given for a property, I will generate nothing for that property or fall back to documented, verifiable defaults — **I will never invent a value.**
+
 ### **Summary of the Corrected Workflow**
 
 1.  To understand the full token scope, query the **parent component set**.

@@ -11,7 +11,7 @@ const buttonVariants = cva(
         selected:
           'bg-[#dce0f4] text-black hover:bg-indigo-200 border-[#dce0f4] rounded-[35px]',
         dark: 'bg-black text-white hover:bg-neutral-800 border-transparent rounded-[35px]',
-        rectangular: 'bg-white hover:bg-neutral-100 text-black border-neutral-400 rounded-md',
+        rectangular: 'bg-white hover:bg-neutral-100 text-black border-neutral-400 rounded-none',
       },
       size: {
         default: 'h-8 px-5 py-[7px] text-[14px]',

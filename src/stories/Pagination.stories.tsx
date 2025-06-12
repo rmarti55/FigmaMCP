@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Pagination from './Pagination';
 
 const source = `
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 interface PaginationProps {
   currentPage: number;
@@ -55,6 +55,10 @@ const Pagination: React.FC<PaginationProps> = ({
   onItemsPerPageChange,
   totalItems,
 }) => {
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+    const itemsPerPageOptions = [10, 20, 50, 100];
+
     const getPageNumbers = () => {
         const pageNumbers = [];
         const maxPagesToShow = 4;
@@ -94,6 +98,18 @@ const Pagination: React.FC<PaginationProps> = ({
     };
 
     const pageNumbers = getPageNumbers();
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setDropdownOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
 
   return (
@@ -145,8 +161,11 @@ const Pagination: React.FC<PaginationProps> = ({
             </button>
         </div>
 
-        <div className="relative">
-            <div className="bg-white rounded-[35px] border border-black flex flex-row items-center justify-center">
+        <div className="relative" ref={dropdownRef}>
+            <button
+                onClick={() => setDropdownOpen(!isDropdownOpen)}
+                className="bg-white rounded-[35px] border border-black flex flex-row items-center justify-center"
+            >
                 <div className="box-border content-stretch flex flex-row gap-2 items-center justify-center pl-5 pr-3 py-[7px] relative">
                     <div className="flex flex-row gap-2 items-center justify-start">
                         <div className="text-black text-sm text-center whitespace-pre">
@@ -160,7 +179,7 @@ const Pagination: React.FC<PaginationProps> = ({
                                     left: "calc(50% + 0.00333262px)",
                                 }}
                                 >
-                                <div className="flex-none rotate-180">
+                                <div className={\`flex-none transition-transform duration-200 \${isDropdownOpen ? '' : 'rotate-180'}\`}>
                                     <div
                                     className="h-[4.667px] relative w-[9.333px]"
                                     >
@@ -171,7 +190,25 @@ const Pagination: React.FC<PaginationProps> = ({
                         </div>
                     </div>
                 </div>
-            </div>
+            </button>
+            {isDropdownOpen && (
+                <div className="absolute bottom-full mb-2 w-full bg-white border border-black rounded-[10px] shadow-lg">
+                    <ul>
+                        {itemsPerPageOptions.map((option) => (
+                            <li
+                                key={option}
+                                className="px-5 py-2 text-sm text-center cursor-pointer hover:bg-gray-100"
+                                onClick={() => {
+                                    onItemsPerPageChange(option);
+                                    setDropdownOpen(false);
+                                }}
+                            >
+                                {option} / page
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </div>
     </div>
   );

@@ -267,7 +267,16 @@ const mockRows: TableRowData[] = [
     aiResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
     editedResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
   },
-];
+].concat(
+  Array.from({ length: 170 }, (_, i) => ({
+    id: `${i + 31}`,
+    postImage: 'https://via.placeholder.com/40',
+    postBody: `This is post body number ${i + 31}. #Example`,
+    comment: `This is a comment for post ${i + 31}.`,
+    aiResponse: `This is the AI response for post ${i + 31}.`,
+    editedResponse: `This is the edited response for post ${i + 31}.`,
+  }))
+);
 
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = React.useState(1);

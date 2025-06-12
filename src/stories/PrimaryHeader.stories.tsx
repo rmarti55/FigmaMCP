@@ -53,7 +53,7 @@ export default function PrimaryHeader({ initialOpen = false }: PrimaryHeaderProp
             className="flex flex-row gap-2 items-center cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <div className="font-sans text-3xl text-black tracking-[-0.64px]">
+            <div className="font-sans text-3xl text-black tracking-[-0.64px] whitespace-nowrap">
               {selectedBrand}
             </div>
             <div className={clsx("transition-transform duration-200", {"rotate-180": isOpen})}>

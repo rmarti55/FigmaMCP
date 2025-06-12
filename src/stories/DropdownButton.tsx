@@ -59,7 +59,7 @@ export function DropdownButton({ items, buttonVariant = 'dark' }: DropdownButton
                   href="#"
                   key={item}
                   onClick={() => handleSelect(item)}
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                  className='block px-4 py-2 text-black hover:bg-gray-100 font-["Futura_Std:Book",_sans-serif] text-[14px] leading-[1.25]'
                   role="menuitem"
                 >
                   {item}

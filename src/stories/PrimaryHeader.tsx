@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { ChevronDown } from 'lucide-react';
 import BackgroundImageAndText from '@/components/BackgroundImageAndText';
 import { FilterButtonGroup } from './FilterButtonGroup';
-import { Button } from './Button';
 
 type PrimaryHeaderProps = {
   initialOpen?: boolean;

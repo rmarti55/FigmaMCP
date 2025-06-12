@@ -37,9 +37,9 @@ export default function PrimaryHeader({ initialOpen = false }: PrimaryHeaderProp
   }
 
   return (
-    <div className="flex flex-col gap-8 w-full">
-      {/* Top Row: Brand Selector and Nav */}
-      <div className="flex flex-row justify-between items-center w-full">
+    <div className="flex flex-row items-center justify-between w-full">
+      {/* Left Side: Brand Selector and Filter Buttons */}
+      <div className="flex flex-row items-center gap-8">
         <div
           className="relative"
           data-name="Platform Dropdown"
@@ -75,18 +75,15 @@ export default function PrimaryHeader({ initialOpen = false }: PrimaryHeaderProp
             </div>
           )}
         </div>
-        <div className="flex flex-row font-sans gap-10 items-center text-black text-sm tracking-[0.84px] uppercase">
-          <BackgroundImageAndText text="Home" />
-          <BackgroundImageAndText text="BFe.l.f" />
-          <BackgroundImageAndText text="Ramon" />
-          <BackgroundImageAndText text="Logout" />
-        </div>
+        <FilterButtonGroup />
       </div>
 
-      {/* Bottom Row: Filter Buttons and Refresh */}
-      <div className="flex flex-row justify-between items-center w-full">
-        <FilterButtonGroup />
-        <Button variant="default">REFRESH</Button>
+      {/* Right Side: Nav Links */}
+      <div className="flex flex-row font-sans gap-10 items-center text-black text-sm tracking-[0.84px] uppercase">
+        <BackgroundImageAndText text="Home" />
+        <BackgroundImageAndText text="BFe.l.f" />
+        <BackgroundImageAndText text="Ramon" />
+        <BackgroundImageAndText text="Logout" />
       </div>
     </div>
   );

@@ -227,6 +227,24 @@ This section documents the rules I must follow for my own internal processes to 
 
 ---
 
+### **Deployment Workflow: Storybook vs. Application**
+
+**Principle:** To maintain a clear separation of concerns, we will manage two distinct deployments on Vercel, both linked to the same GitHub repository.
+
+1.  **Storybook (`figma-mcp`):** This Vercel project is dedicated *exclusively* to deploying our Storybook component library. It serves as our quality gate and living documentation for all components. Its purpose is to allow for development and verification of components in isolation.
+
+2.  **Website Application (`figma-mcp-website`):** This Vercel project is dedicated *exclusively* to deploying the final, user-facing website. This application will be built by importing and composing the verified components from the Storybook library.
+
+**Rule:** The development lifecycle is as follows:
+1.  First, develop, modify, and test components within the Storybook environment.
+2.  Push changes to GitHub, triggering a deployment to the Storybook Vercel project for verification.
+3.  Once a component is verified in Storybook, integrate it into the main website application.
+4.  Push changes to the application, triggering a deployment to the Website Vercel project.
+
+This two-project approach prevents confusion and ensures that the production website is only ever built with stable, verified components.
+
+---
+
 ### **Our Proven Workflow: A Summary**
 
 Our collaboration has evolved into a highly effective, systematic process. This is the workflow we will apply to all future tasks.

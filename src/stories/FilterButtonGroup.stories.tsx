@@ -1,23 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { FilterButtonGroup } from './FilterButtonGroup';
 
-const meta: Meta<typeof FilterButtonGroup> = {
-  title: 'Design System/Organisms/FilterButtonGroup',
-  component: FilterButtonGroup,
-  tags: ['autodocs'],
-  parameters: {
-    layout: 'centered',
-  },
-};
-
-export default meta;
-type Story = StoryObj<typeof FilterButtonGroup>;
-
-export const Default: Story = {
-  parameters: {
-    docs: {
-      source: {
-        code: `
+const source = `
 import React, { useState } from 'react';
 import { Button } from './Button';
 import { DropdownButton } from './DropdownButton';
@@ -55,7 +39,22 @@ export function FilterButtonGroup() {
     </div>
   );
 }
-        `,
+`;
+
+const meta: Meta<typeof FilterButtonGroup> = {
+  title: 'Design System/Organisms/FilterButtonGroup',
+  component: FilterButtonGroup,
+  tags: ['autodocs'],
+};
+
+export default meta;
+type Story = StoryObj<typeof FilterButtonGroup>;
+
+export const Default: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: source,
       },
     },
   },

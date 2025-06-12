@@ -6,10 +6,11 @@ import { ResponseTable } from '@/stories/ResponseTable';
 import { TableRowData } from '@/stories/TableRow';
 
 const mockHeaders: string[] = [
-  'Post',
+  'Post Image',
+  'Post Body',
   'Comment',
   'AI Response',
-  'Edited Response',
+  'Edited/Posted Response',
 ];
 
 const mockRows: TableRowData[] = [
@@ -18,7 +19,7 @@ const mockRows: TableRowData[] = [
     postImage: 'https://via.placeholder.com/40',
     postBody: 'This is the body of the first post.',
     comment: 'This is a test comment on the first post.',
-    aiResponse: 'This is the AI\'s generated response.',
+    aiResponse: "This is the AI's generated response.",
     editedResponse: 'This is the user-edited response.',
   },
   {

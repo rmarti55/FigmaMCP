@@ -21,7 +21,7 @@ export function FilterButtonGroup() {
   const [selectedFilter, setSelectedFilter] = useState('Comments');
 
   return (
-    <div className="flex flex-row gap-2 items-center p-4 bg-white rounded-lg">
+    <div className="flex flex-row gap-2 items-center bg-white rounded-lg w-full">
       <DropdownButton items={socialMediaPlatforms} />
       {filterOptions.map((option) => (
         <Button

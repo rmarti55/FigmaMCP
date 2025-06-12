@@ -34,13 +34,15 @@ const mockRows: TableRowData[] = [
 
 const Dashboard = () => {
   return (
-    <div className="p-8">
-      <Header />
-      <div className="mt-8">
-        <FilterBar />
-      </div>
-      <div className="mt-8">
-        <FilterButtonGroup />
+    <div className="py-8">
+      <div className="px-8">
+        <Header />
+        <div className="mt-8">
+          <FilterBar />
+        </div>
+        <div className="mt-8">
+          <FilterButtonGroup />
+        </div>
       </div>
       <div className="mt-8">
         <ResponseTable headers={mockHeaders} rows={mockRows} />

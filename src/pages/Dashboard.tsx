@@ -1,10 +1,9 @@
 import React from 'react';
-import Header from '@/components/Header';
 import { FilterBar } from '@/stories/FilterBar';
-import { FilterButtonGroup } from '@/stories/FilterButtonGroup';
 import { ResponseTable } from '@/stories/ResponseTable';
 import { TableRowData } from '@/stories/TableRow';
 import Pagination from '@/stories/Pagination';
+import PrimaryHeader from '@/stories/PrimaryHeader';
 
 const mockHeaders: string[] = [
   'Post Image',
@@ -302,12 +301,9 @@ const Dashboard = () => {
   return (
     <div className="py-8">
       <div className="px-8">
-        <Header />
+        <PrimaryHeader />
         <div className="mt-8">
           <FilterBar />
-        </div>
-        <div className="mt-8">
-          <FilterButtonGroup />
         </div>
       </div>
       <div className="mt-8">

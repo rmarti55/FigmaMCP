@@ -242,6 +242,19 @@ Our collaboration has evolved into a highly effective, systematic process. This 
 By following this process, we ensure our work is always high-quality, scalable, and built on a solid foundation.
 
 ---
+
+### **Definition of Done: The Final Steps**
+
+A task is not complete until the following steps have been executed and verified:
+
+1.  **Commit Changes:** All code and documentation changes must be committed with a clear, descriptive commit message that follows our established format.
+2.  **Push to Remote:** The commit(s) must be pushed to the `main` branch on the remote GitHub repository.
+3.  **Verify Deployment:** The push will trigger a Vercel deployment. I must monitor the deployment and confirm that it completes successfully.
+4.  **Final Confirmation:** I will only consider the task complete after I have confirmed the successful Vercel deployment with you.
+
+This checklist is mandatory and final. There are no exceptions.
+
+---
 ---
 
 # **FROM: instructions.md**
@@ -924,5 +937,3 @@ This document is the single source of truth for all workflows, standards, and be
 ---
 
 **This protocol is permanent and must be followed for all future work. Any amendments must be explicitly documented and confirmed.**
-
-</rewritten_file>

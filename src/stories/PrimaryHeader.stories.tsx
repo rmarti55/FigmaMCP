@@ -61,13 +61,13 @@ export default function PrimaryHeader({ initialOpen = false }: PrimaryHeaderProp
             </div>
           </div>
           {isOpen && (
-            <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl z-10">
+            <div className="absolute top-full left-0 mt-2 w-auto bg-white border border-gray-200 rounded-lg shadow-xl z-10">
               <ul>
                 {brands.map((brand) => (
                   <li
                     key={brand}
                     className={clsx(
-                      "px-4 py-3 hover:bg-gray-100 cursor-pointer text-lg",
+                      "px-4 py-3 hover:bg-gray-100 cursor-pointer text-lg whitespace-nowrap",
                       { "font-bold bg-gray-100": brand === selectedBrand }
                     )}
                     onClick={() => handleSelectBrand(brand)}

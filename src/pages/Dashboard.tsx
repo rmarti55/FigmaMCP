@@ -4,6 +4,7 @@ import { ResponseTable } from '@/stories/ResponseTable';
 import { TableRowData } from '@/stories/TableRow';
 import Pagination from '@/stories/Pagination';
 import PrimaryHeader from '@/stories/PrimaryHeader';
+import { Button } from '@/stories/Button';
 
 const mockHeaders: string[] = [
   'Post Image',
@@ -302,8 +303,9 @@ const Dashboard = () => {
     <div className="py-8">
       <div className="px-8">
         <PrimaryHeader />
-        <div className="mt-8">
+        <div className="mt-8 flex justify-between items-center">
           <FilterBar />
+          <Button variant="default">REFRESH</Button>
         </div>
       </div>
       <div className="mt-8">

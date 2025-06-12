@@ -252,6 +252,19 @@ This two-project approach prevents confusion and ensures that the production web
 
 ---
 
+### **The "Why": The Value of Storybook**
+
+**Principle:** We use Storybook because it enables us to build a robust, scalable, and maintainable application. The minor "cost" of discipline in the short term pays massive dividends in speed, quality, and consistency in the long term.
+
+1.  **Development in Isolation:** Storybook allows us to build and test components in a "workshop" environment, completely separate from the main application. This is significantly faster and more reliable than testing a small button change by rebuilding the entire website.
+2.  **Verifying All States:** It provides a venue to document and test every possible state of a component (e.g., `disabled`, `error`, with long text) without having to artificially create those scenarios in the live application.
+3.  **A Shared Blueprint for Quality:** Storybook acts as the canonical "source of truth" for what our components should look and feel like. Discrepancies between Storybook and the live website are not a sign of failure, but a signal that the implementation has deviated from the blueprint, which must be corrected. It is our primary quality assurance tool.
+4.  **Enabling Scalability:** As the application grows to dozens or hundreds of components, having a centralized, verifiable library is the only way to manage complexity. It allows us to make a single change to a base component and have confidence it will be correctly applied everywhere.
+
+**Rule:** All team members, including AI agents, must treat Storybook as the primary source of truth for component implementation. The workflow of building in isolation, verifying in Storybook, and then integrating into the main application is mandatory.
+
+---
+
 ### **Our Proven Workflow: A Summary**
 
 Our collaboration has evolved into a highly effective, systematic process. This is the workflow we will apply to all future tasks.

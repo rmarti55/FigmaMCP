@@ -298,14 +298,14 @@ const Dashboard = () => {
   );
 
   return (
-    <div className="py-8">
-      <div className="px-8">
+    <div>
+      <div className="px-8 pt-8 pb-24">
         <PrimaryHeader />
+        <div className="mt-8">
+          <ResponseTable headers={mockHeaders} rows={paginatedRows} />
+        </div>
       </div>
-      <div className="mt-8">
-        <ResponseTable headers={mockHeaders} rows={paginatedRows} />
-      </div>
-      <div className="mt-8 flex justify-center">
+      <div className="fixed bottom-0 left-0 right-0 bg-white p-4 border-t border-gray-200 flex justify-center z-50">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

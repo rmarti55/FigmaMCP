@@ -36,7 +36,7 @@ export default function PrimaryHeader({ initialOpen = false }: PrimaryHeaderProp
   }
 
   return (
-    <div className="flex flex-row items-center justify-between w-full sticky top-0 bg-white z-50 border-b border-gray-200 px-6 py-4">
+    <div className="flex flex-row items-center justify-between w-full fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-200 px-6 py-4">
       {/* Left Side: Brand Selector and Filter Buttons */}
       <div className="flex flex-row items-center gap-8">
         <div

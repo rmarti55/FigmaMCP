@@ -79,7 +79,7 @@ export function DropdownButton({ items, buttonVariant = 'dark' }: DropdownButton
 `;
 
 const meta: Meta<typeof DropdownButton> = {
-  title: 'Design System/Atoms/DropdownButton',
+  title: 'Design System/B-Atoms/DropdownButton',
   component: DropdownButton,
   tags: ['autodocs'],
   parameters: {

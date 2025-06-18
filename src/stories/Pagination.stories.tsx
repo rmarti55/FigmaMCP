@@ -218,7 +218,7 @@ export default Pagination;
 `;
 
 const meta: Meta<typeof Pagination> = {
-  title: 'Design System/Molecules/Pagination',
+  title: 'Design System/C-Molecules/Pagination',
   component: Pagination,
   parameters: {
     layout: 'centered',

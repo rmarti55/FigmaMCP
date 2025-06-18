@@ -95,7 +95,7 @@ export default function PrimaryHeader({ initialOpen = false }: PrimaryHeaderProp
 `;
 
 const meta: Meta<typeof PrimaryHeader> = {
-  title: 'Design System/Organisms/PrimaryHeader',
+  title: 'Design System/D-Organisms/PrimaryHeader',
   component: PrimaryHeader,
     parameters: {
         layout: 'fullscreen',

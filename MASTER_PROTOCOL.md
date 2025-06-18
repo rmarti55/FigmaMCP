@@ -198,6 +198,28 @@ This section captures key learnings from our development process to ensure we wo
 
 **Principle:** All components must be organized according to a consistent, logical hierarchy based on Atomic Design principles. This ensures our Storybook is clean, scalable, and easy to navigate.
 
+**CRITICAL: STORYBOOK STRUCTURE TERMINOLOGY**
+
+To prevent architectural violations and maintain clarity, the following terminology is MANDATORY and must be used consistently:
+
+- **Category** = Top-Level organizational section (e.g., "Design System")
+- **Folder** = Atomic Design layer within a Category (e.g., "Atoms", "Molecules", "Organisms", "Foundation")
+- **Component** = Specific UI component being documented (e.g., "Button", "Input", "Card")
+- **Doc** = Auto-generated documentation view for the Component
+- **Variant** = Specific state/configuration of the Component (e.g., "Default", "Selected", "Dark", "Disabled")
+
+**Hierarchy Structure:** Category → Folder → Component → Variants
+
+**VIOLATION PREVENTION:** When user says "component" in work context, they mean DESCRIBING work being done, NOT an instruction to create separate sections that break the Category → Folder → Component structure. NEVER create standalone "COMPONENTS" sections that violate Atomic Design principles.
+
+**CRITICAL: DO NOT CREATE NEW CATEGORIES OR FOLDERS**
+
+- When user says "component" - DO NOT create a new Category named "component" or "COMPONENT" 
+- When user refers to "atoms", "molecules", "organisms" - they mean the EXISTING Folders with those names, DO NOT create new ones
+- DO NOT create any new Categories or Folders unless explicitly instructed with phrases like "create a new category called..." or "add a new folder named..."
+- The existing structure is: DESIGN SYSTEM (Category) → Atoms/Molecules/Organisms/Foundation (Folders) → Individual Components → Variants
+- NEVER deviate from this established structure by creating parallel or additional organizational layers
+
 **Structure:** We will use the following path structure in the `title` of our Storybook stories:
 *   `Design System/Atoms/[ComponentName]` for basic, indivisible components (e.g., Button, Input, Label).
 *   `Design System/Molecules/[ComponentName]` for simple groups of Atoms (e.g., a search form with an Input and a Button).

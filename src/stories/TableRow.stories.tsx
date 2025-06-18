@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TableRow, TableRowData } from './TableRow';
 
 const meta: Meta<typeof TableRow> = {
-  title: 'Design System/Atoms/TableRow',
+  title: 'Design System/02-Atoms/TableRow',
   component: TableRow,
   tags: ['autodocs'],
   decorators: [

@@ -42,7 +42,7 @@ export function FilterButtonGroup() {
 `;
 
 const meta: Meta<typeof FilterButtonGroup> = {
-  title: 'Design System/Organisms/FilterButtonGroup',
+  title: 'Design System/04-Organisms/FilterButtonGroup',
   component: FilterButtonGroup,
   tags: ['autodocs'],
 };

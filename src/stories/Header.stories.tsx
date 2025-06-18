@@ -112,7 +112,7 @@ export default function Header({ initialOpen = false }: HeaderProps) {
 `;
 
 const meta: Meta<typeof Header> = {
-  title: 'Design System/Organisms/Header',
+  title: 'Design System/04-Organisms/Header',
   component: Header,
   tags: ['autodocs'],
   parameters: {

@@ -55,7 +55,7 @@ export { Button, buttonVariants };
 `;
 
 const meta: Meta<typeof Button> = {
-  title: 'Design System/02-Atoms/Button',
+  title: 'Design System/Atoms/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {

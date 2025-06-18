@@ -3,7 +3,7 @@ import { ResponseTable } from './ResponseTable';
 import { TableRowData } from './TableRow';
 
 const meta: Meta<typeof ResponseTable> = {
-  title: 'Design System/04-Organisms/ResponseTable',
+  title: 'Design System/Organisms/ResponseTable',
   component: ResponseTable,
   tags: ['autodocs'],
 };

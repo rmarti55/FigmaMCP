@@ -3,6 +3,7 @@ import { ResponseTable } from '@/stories/ResponseTable';
 import { TableRowData } from '@/stories/TableRow';
 import Pagination from '@/stories/Pagination';
 import PrimaryHeader from '@/stories/PrimaryHeader';
+import { FilterBar } from '@/stories/FilterBar';
 
 const mockHeaders: string[] = [
   'Post Image',
@@ -301,6 +302,9 @@ const Dashboard = () => {
     <div>
       <div className="px-8 pt-8 pb-24">
         <PrimaryHeader />
+        <div className="mt-8">
+          <FilterBar />
+        </div>
         <div className="mt-8">
           <ResponseTable headers={mockHeaders} rows={paginatedRows} />
         </div>

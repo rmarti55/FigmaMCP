@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TableHeader } from './TableHeader';
 
 const meta: Meta<typeof TableHeader> = {
-  title: 'Design System/B-Atoms/TableHeader',
+  title: 'Design System/Atoms/TableHeader',
   component: TableHeader,
   tags: ['autodocs'],
   decorators: [

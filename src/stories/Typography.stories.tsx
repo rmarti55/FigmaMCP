@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TypographyShowcase } from './Typography';
 
 const meta: Meta<typeof TypographyShowcase> = {
-  title: 'Design System/A-Foundation/Typography',
+  title: 'Design System/Foundation/Typography',
   component: TypographyShowcase,
   parameters: {
     layout: 'fullscreen',

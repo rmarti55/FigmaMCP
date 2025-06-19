@@ -31,7 +31,7 @@ export function FilterBar() {
 `;
 
 const meta: Meta<typeof FilterBar> = {
-  title: 'Design System/D-Organisms/FilterBar',
+  title: 'Design System/Organisms/FilterBar',
   component: FilterBar,
   tags: ['autodocs'],
 };

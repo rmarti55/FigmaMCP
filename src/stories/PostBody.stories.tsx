@@ -35,7 +35,7 @@ const meta: Meta<typeof PostBody> = {
     layout: 'padded',
     docs: {
       description: {
-        component: 'A simple atom component for displaying post content with an optional header. Uses Jost font family for consistent typography.',
+        component: 'A simple atom component for displaying post content with an optional header. Uses Futura Std font family for consistent typography.',
       },
     },
   },

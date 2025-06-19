@@ -44,7 +44,7 @@ const meta: Meta<typeof Comment> = {
     layout: 'padded',
     docs: {
       description: {
-        component: 'A comment component with profile image, sentiment selection, comment text, timestamp, and add button. Uses Jost font family for consistent typography.',
+        component: 'A comment component with profile image, sentiment selection, comment text, timestamp, and add button. Uses Futura Std font family for consistent typography.',
       },
     },
   },

@@ -21,7 +21,7 @@ export function FilterBar() {
           <DropdownButton buttonVariant="rectangular" items={['Comment Posted Time', 'Last 24 Hours']} />
           <DropdownButton buttonVariant="rectangular" items={['Show Hidden', 'Hide Hidden']} />
         </div>
-        <Button variant="default" style={{ fontFamily: '"Futura Std", sans-serif', fontWeight: 700, fontSize: '14px', letterSpacing: '0.84px', textTransform: 'uppercase' as const }}>
+        <Button variant="default" className="font-sans font-bold text-sm tracking-wider uppercase">
           REFRESH
         </Button>
       </div>

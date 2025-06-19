@@ -26,7 +26,7 @@ The central purpose of this project is to translate Figma designs into code with
 ## **Global Style Directives**
 
 ### **1. Typography**
-- **Primary Font:** The Jost font is the one and only font to be used across the entire application and all components. It must be applied globally. All text elements should default to or explicitly use Jost.
+- **Primary Font:** The Futura Std font is the one and only font to be used across the entire application and all components. It must be applied globally via Tailwind's font-sans utility. All text elements should default to or explicitly use Futura Std.
 
 ---
 
@@ -306,7 +306,7 @@ By following this process, we ensure our work is always high-quality, scalable, 
 ## **Global Style Directives**
 
 ### **1. Typography**
-- **Primary Font:** The Jost font is the one and only font to be used across the entire application and all components. It must be applied globally. All text elements should default to or explicitly use Jost.
+- **Primary Font:** The Futura Std font is the one and only font to be used across the entire application and all components. It must be applied globally via Tailwind's font-sans utility. All text elements should default to or explicitly use Futura Std.
 
 ---
 

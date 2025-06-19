@@ -38,7 +38,7 @@ const meta: Meta<typeof AIResponse> = {
     layout: 'padded',
     docs: {
       description: {
-        component: 'An AI response component with profile image, response text, edit functionality, and post button. Uses Jost font family and our existing Button component.',
+        component: 'An AI response component with profile image, response text, edit functionality, and post button. Uses Futura Std font family and our existing Button component.',
       },
     },
   },

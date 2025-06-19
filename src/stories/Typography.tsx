@@ -18,7 +18,18 @@ const FontSpecimen: React.FC<FontSpecimenProps> = ({
   family = 'normal'
 }) => {
   const fontClass = family === 'condensed' ? 'font-condensed' : 'font-sans';
-  const weightClass = `font-[${weight}]`;
+  
+  // Map font weights to Tailwind classes
+  const weightClassMap: Record<number, string> = {
+    300: 'font-light',
+    400: 'font-normal', 
+    500: 'font-medium',
+    700: 'font-bold',
+    800: 'font-extrabold',
+    900: 'font-black'
+  };
+  
+  const weightClass = weightClassMap[weight] || 'font-normal';
   const styleClass = style === 'italic' ? 'italic' : '';
   
   const weightName = {

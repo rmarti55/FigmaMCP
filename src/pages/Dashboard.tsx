@@ -309,7 +309,7 @@ const Dashboard = () => {
     <div>
       <div className="pt-8 pb-24">
         <PrimaryHeader />
-        <Container padding="tight" className="mt-8 pt-4">
+        <Container size="full" padding="tight" className="mt-8 pt-4">
           <FilterBar />
         </Container>
         <div className="mt-8">

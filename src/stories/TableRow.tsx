@@ -19,11 +19,26 @@ export interface TableRowData {
 
 export interface TableRowProps {
   rowData: TableRowData;
+  /**
+   * Callback when row is clicked (for modal opening)
+   */
+  onRowClick?: (rowData: TableRowData) => void;
 }
 
-export function TableRow({ rowData }: TableRowProps) {
+export function TableRow({ rowData, onRowClick }: TableRowProps) {
+  const handleRowClick = (e: React.MouseEvent) => {
+    // Don't trigger row click if clicking on buttons
+    if ((e.target as HTMLElement).closest('button')) {
+      return;
+    }
+    onRowClick?.(rowData);
+  };
+
   return (
-    <tr className="border-b border-gray-200">
+    <tr 
+      className="border-b border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors"
+      onClick={handleRowClick}
+    >
       <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 text-center">
         <div className="h-16 w-16 flex-shrink-0 p-1 mx-auto">
           <img

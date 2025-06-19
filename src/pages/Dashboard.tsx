@@ -5,11 +5,78 @@ import Pagination from '@/stories/Pagination';
 import PrimaryHeader from '@/stories/PrimaryHeader';
 import { FilterBar } from '@/stories/FilterBar';
 import { Container } from '@/components/Layout/Container';
+import { CommentModal, type CommentData, type AIResponseData } from '@/stories/CommentModal';
 
 // Generate cosmetics-themed social media post images
 const getCosmeticsImage = (id: string) => {
   // Use Picsum Photos with seed for consistent images per ID
   return `https://picsum.photos/seed/${id}/40/40`;
+};
+
+// Transform TableRowData to CommentModal data
+const transformRowDataToModalData = (rowData: TableRowData) => {
+  // Generate a higher resolution image for the modal (600x800 for 3:4 aspect ratio)
+  const modalImage = `https://picsum.photos/seed/${rowData.id}/600/800`;
+  
+  // Extract username from comment or generate one
+  const generateUsername = (id: string) => {
+    const usernames = [
+      'maddie.ratcliff', 'guss.gussssspam', 'beauty.lover', 'skincare.enthusiast',
+      'makeup.maven', 'glam.goddess', 'beauty.addict', 'cosmetics.queen'
+    ];
+    const index = parseInt(id) % usernames.length;
+    return usernames[index];
+  };
+
+  // Generate timestamp
+  const generateTimestamp = (id: string) => {
+    const dates = [
+      '22:34:20 June 18, 2025 PST',
+      '14:55:37 June 18, 2025 PST', 
+      '16:20:15 June 18, 2025 PST',
+      '18:45:30 June 18, 2025 PST'
+    ];
+    const index = parseInt(id) % dates.length;
+    return dates[index];
+  };
+
+  // Generate sentiment based on comment content
+  const generateSentiment = (comment: string): 'positive' | 'negative' | 'neutral' => {
+    const lowerComment = comment.toLowerCase();
+    if (lowerComment.includes('love') || lowerComment.includes('amazing') || lowerComment.includes('great')) {
+      return 'positive';
+    }
+    if (lowerComment.includes('miss') || lowerComment.includes('hate') || lowerComment.includes('bad')) {
+      return 'negative';
+    }
+    return 'neutral';
+  };
+
+  const comments: CommentData[] = [
+    {
+      id: `comment-${rowData.id}`,
+      profileName: generateUsername(rowData.id),
+      sentiment: generateSentiment(rowData.comment),
+      commentText: rowData.comment,
+      timestamp: generateTimestamp(rowData.id),
+    }
+  ];
+
+  const aiResponses: AIResponseData[] = [
+    {
+      id: `ai-${rowData.id}`,
+      profileName: 'e.l.f. Cosmetics and Skincare',
+      bodyText: rowData.aiResponse,
+    }
+  ];
+
+  return {
+    postImage: modalImage,
+    postImageAlt: `Social media post ${rowData.id}`,
+    postBodyText: rowData.postBody,
+    comments,
+    aiResponses,
+  };
 };
 
 const mockHeaders: string[] = [
@@ -287,6 +354,8 @@ const mockRows: TableRowData[] = [
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [selectedRowData, setSelectedRowData] = React.useState<TableRowData | null>(null);
 
   const totalItems = mockRows.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -300,10 +369,23 @@ const Dashboard = () => {
     setCurrentPage(1);
   };
 
+  const handleRowClick = (rowData: TableRowData) => {
+    setSelectedRowData(rowData);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedRowData(null);
+  };
+
   const paginatedRows = mockRows.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+
+  // Transform selected row data for modal
+  const modalData = selectedRowData ? transformRowDataToModalData(selectedRowData) : null;
 
   return (
     <div>
@@ -313,7 +395,7 @@ const Dashboard = () => {
           <FilterBar />
         </Container>
         <div className="mt-8">
-          <ResponseTable headers={mockHeaders} rows={paginatedRows} />
+          <ResponseTable headers={mockHeaders} rows={paginatedRows} onRowClick={handleRowClick} />
         </div>
       </div>
       <div className="fixed bottom-0 left-0 right-0 bg-white p-4 border-t border-gray-200 flex justify-center z-50">
@@ -326,6 +408,19 @@ const Dashboard = () => {
           totalItems={totalItems}
         />
       </div>
+      
+      {/* Comment Modal */}
+      {modalData && (
+        <CommentModal
+          isOpen={isModalOpen}
+          onClose={handleModalClose}
+          postImage={modalData.postImage}
+          postImageAlt={modalData.postImageAlt}
+          postBodyText={modalData.postBodyText}
+          comments={modalData.comments}
+          aiResponses={modalData.aiResponses}
+        />
+      )}
     </div>
   );
 };

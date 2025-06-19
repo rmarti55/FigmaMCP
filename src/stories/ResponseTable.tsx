@@ -5,9 +5,13 @@ import { TableRow, TableRowData } from './TableRow';
 interface ResponseTableProps {
   headers: TableHeaderProps['headers'];
   rows: TableRowData[];
+  /**
+   * Callback when a table row is clicked
+   */
+  onRowClick?: (rowData: TableRowData) => void;
 }
 
-export function ResponseTable({ headers, rows }: ResponseTableProps) {
+export function ResponseTable({ headers, rows, onRowClick }: ResponseTableProps) {
   return (
     <div className="">
       <div className="mt-8 flow-root">
@@ -17,7 +21,7 @@ export function ResponseTable({ headers, rows }: ResponseTableProps) {
               <TableHeader headers={headers} />
               <tbody className="divide-y divide-gray-200 bg-white">
                 {rows.map((row) => (
-                  <TableRow key={row.id} rowData={row} />
+                  <TableRow key={row.id} rowData={row} onRowClick={onRowClick} />
                 ))}
               </tbody>
             </table>

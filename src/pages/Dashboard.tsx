@@ -304,7 +304,7 @@ const Dashboard = () => {
         <div className="px-8">
           <PrimaryHeader />
         </div>
-        <div className="px-8 mt-8">
+        <div className="px-8 mt-8 pt-4">
           <FilterBar />
         </div>
         <div className="mt-8">

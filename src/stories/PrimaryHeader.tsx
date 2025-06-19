@@ -38,7 +38,7 @@ export default function PrimaryHeader({ initialOpen = false }: PrimaryHeaderProp
 
   return (
     <div className="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-200">
-      <Container padding="responsive" className="py-4">
+      <Container padding="tight" className="py-4">
         <div className="flex flex-row items-center justify-between w-full">
           {/* Left Side: Brand Selector and Filter Buttons */}
           <div className="flex flex-row items-center gap-8">

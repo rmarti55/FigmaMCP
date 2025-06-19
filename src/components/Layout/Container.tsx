@@ -24,6 +24,7 @@ const containerVariants = cva(
         xl: 'px-xl',
         '2xl': 'px-2xl',
         responsive: 'px-sm md:px-md lg:px-lg xl:px-xl',
+        tight: 'px-xs sm:px-sm md:px-md lg:px-md',
       },
       centered: {
         true: 'mx-auto',

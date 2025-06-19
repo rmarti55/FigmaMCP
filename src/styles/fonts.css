@@ -1,0 +1,171 @@
+/* Futura Std Font Family - Complete Typography System */
+
+/* Light Weight */
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-LightOblique.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Book Weight (Regular) */
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-BookOblique.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Medium Weight */
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-MediumOblique.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold Weight */
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-BoldOblique.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Extra Bold Weight */
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-ExtraBoldOblique.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Heavy Weight */
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Std';
+  src: url('/fonts/futura/FuturaStd-HeavyOblique.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Condensed Regular */
+@font-face {
+  font-family: 'Futura Std Condensed';
+  src: url('/fonts/futura/FuturaStd-Condensed.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Std Condensed';
+  src: url('/fonts/futura/FuturaStd-CondensedOblique.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Condensed Light */
+@font-face {
+  font-family: 'Futura Std Condensed';
+  src: url('/fonts/futura/FuturaStd-CondensedLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Std Condensed';
+  src: url('/fonts/futura/FuturaStd-CondensedLightObl.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Condensed Bold */
+@font-face {
+  font-family: 'Futura Std Condensed';
+  src: url('/fonts/futura/FuturaStd-CondensedBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Std Condensed';
+  src: url('/fonts/futura/FuturaStd-CondensedBoldObl.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Condensed Extra Bold */
+@font-face {
+  font-family: 'Futura Std Condensed';
+  src: url('/fonts/futura/FuturaStd-CondensedExtraBd.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Std Condensed';
+  src: url('/fonts/futura/FuturaStd-CondExtraBoldObl.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+} 

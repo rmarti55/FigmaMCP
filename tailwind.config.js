@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Jost', 'sans-serif'],
+        sans: ['Futura Std', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        condensed: ['Futura Std Condensed', 'Arial Narrow', 'sans-serif'],
       },
       // Design Token Foundation - 4px/8px system
       spacing: {

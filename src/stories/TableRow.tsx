@@ -24,10 +24,10 @@ export interface TableRowProps {
 export function TableRow({ rowData }: TableRowProps) {
   return (
     <tr className="border-b border-gray-200">
-      <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-        <div className="h-16 w-16 flex-shrink-0 p-1">
+      <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 text-center">
+        <div className="h-16 w-16 flex-shrink-0 p-1 mx-auto">
           <img
-            className="h-full w-full rounded-lg object-cover"
+            className="h-full w-full object-cover"
             src={rowData.postImage || getCosmeticsImage(rowData.id)}
             alt=""
             onError={e => {

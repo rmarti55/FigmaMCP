@@ -7,23 +7,8 @@ import { FilterBar } from '@/stories/FilterBar';
 
 // Generate cosmetics-themed social media post images
 const getCosmeticsImage = (id: string) => {
-  const themes = [
-    'makeup,beauty,cosmetics',
-    'skincare,beauty,woman',
-    'lipstick,beauty,fashion',
-    'eyeshadow,makeup,beauty',
-    'skincare,spa,beauty',
-    'perfume,beauty,luxury',
-    'nail,polish,beauty',
-    'foundation,makeup,beauty',
-    'beauty,woman,portrait',
-    'cosmetics,products,beauty'
-  ];
-  
-  const themeIndex = parseInt(id) % themes.length;
-  const theme = themes[themeIndex];
-  
-  return `https://source.unsplash.com/40x40/?${theme}&sig=${id}`;
+  // Use Picsum Photos with seed for consistent images per ID
+  return `https://picsum.photos/seed/${id}/40/40`;
 };
 
 const mockHeaders: string[] = [

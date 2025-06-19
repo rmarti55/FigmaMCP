@@ -11,11 +11,11 @@ export function FilterBar() {
           <SearchInput />
         </div>
         <div className="basis-0 grow min-h-px min-w-px relative shrink-0 flex gap-2.5">
-          <DropdownButton buttonVariant="rectangular" items={['Search Post']} />
-          <DropdownButton buttonVariant="rectangular" items={['Show Bookmarked', 'Show All']} />
-          <DropdownButton buttonVariant="rectangular" items={['Response', 'No Response']} />
-          <DropdownButton buttonVariant="rectangular" items={['Comment Posted Time', 'Last 24 Hours']} />
-          <DropdownButton buttonVariant="rectangular" items={['Show Hidden', 'Hide Hidden']} />
+          <DropdownButton buttonVariant="rectangular" items={['Search Post']} className="flex-1" />
+          <DropdownButton buttonVariant="rectangular" items={['Show Bookmarked', 'Show All']} className="flex-1" />
+          <DropdownButton buttonVariant="rectangular" items={['Response', 'No Response']} className="flex-1" />
+          <DropdownButton buttonVariant="rectangular" items={['Comment Posted Time', 'Last 24 Hours']} className="flex-1" />
+          <DropdownButton buttonVariant="rectangular" items={['Show Hidden', 'Hide Hidden']} className="flex-1" />
         </div>
         <Button variant="default" style={{ fontFamily: '"Futura Std", sans-serif', fontWeight: 700, fontSize: '14px', letterSpacing: '0.84px', textTransform: 'uppercase' as const }}>
           REFRESH

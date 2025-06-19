@@ -6,9 +6,10 @@ import { Button, ButtonProps } from './Button';
 type DropdownButtonProps = {
   items: string[];
   buttonVariant?: ButtonProps['variant'];
+  className?: string;
 };
 
-export function DropdownButton({ items, buttonVariant = 'dark' }: DropdownButtonProps) {
+export function DropdownButton({ items, buttonVariant = 'dark', className = '' }: DropdownButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(items[0] || 'Select');
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -29,11 +30,11 @@ export function DropdownButton({ items, buttonVariant = 'dark' }: DropdownButton
   };
 
   return (
-    <div className="relative inline-block text-left" ref={dropdownRef}>
+    <div className={`relative inline-block text-left ${className}`} ref={dropdownRef}>
       <Button
         variant={buttonVariant}
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-40"
+        className="flex items-center justify-between w-full"
       >
         <span>{selectedItem}</span>
         <motion.div
@@ -51,7 +52,7 @@ export function DropdownButton({ items, buttonVariant = 'dark' }: DropdownButton
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10"
+            className="origin-top-right absolute left-0 mt-2 w-full min-w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10"
           >
             <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
               {items.map((item) => (

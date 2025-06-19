@@ -5,6 +5,27 @@ import Pagination from '@/stories/Pagination';
 import PrimaryHeader from '@/stories/PrimaryHeader';
 import { FilterBar } from '@/stories/FilterBar';
 
+// Generate cosmetics-themed social media post images
+const getCosmeticsImage = (id: string) => {
+  const themes = [
+    'makeup,beauty,cosmetics',
+    'skincare,beauty,woman',
+    'lipstick,beauty,fashion',
+    'eyeshadow,makeup,beauty',
+    'skincare,spa,beauty',
+    'perfume,beauty,luxury',
+    'nail,polish,beauty',
+    'foundation,makeup,beauty',
+    'beauty,woman,portrait',
+    'cosmetics,products,beauty'
+  ];
+  
+  const themeIndex = parseInt(id) % themes.length;
+  const theme = themes[themeIndex];
+  
+  return `https://source.unsplash.com/40x40/?${theme}&sig=${id}`;
+};
+
 const mockHeaders: string[] = [
   'Post Image',
   'Post Body',
@@ -16,7 +37,7 @@ const mockHeaders: string[] = [
 const mockRows: TableRowData[] = [
   {
     id: '1',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('1'),
     postBody: "Just got my beauty box and I'm so excited to try the products! ✨ #BeautyBox",
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse:
@@ -26,7 +47,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '2',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('2'),
     postBody: 'Excited to pamper myself with BlissfulBubbles bath bombs! 🛁 #PamperTime',
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse:
@@ -36,7 +57,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '3',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('3'),
     postBody: "Thrilled to start my self-care journey with RadiantSkin's new line! 🌟 #SelfCare",
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
@@ -44,7 +65,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '4',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('4'),
     postBody: 'New video up on my channel! Trying out the latest foundation. 🎥',
     comment: 'OMG, your skin looks flawless!',
     aiResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
@@ -52,7 +73,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '5',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('5'),
     postBody: 'Feeling confident in my new lipstick shade! 💄',
     comment: 'That color is stunning on you!',
     aiResponse: 'We love to see it! That shade was made for you. 🔥',
@@ -60,7 +81,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '6',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('6'),
     postBody: 'My morning routine just got an upgrade with this serum.',
     comment: 'I need to know more about this!',
     aiResponse: "It's a game-changer, right? So glad you're loving it!",
@@ -68,7 +89,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '7',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('7'),
     postBody: 'Loving the new packaging on these products!',
     comment: 'So chic and sustainable!',
     aiResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
@@ -76,7 +97,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '8',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('8'),
     postBody: 'This eyeshadow palette has so many amazing colors.',
     comment: 'The pigment is incredible!',
     aiResponse: 'We agree! The color payoff is one of our favorite things about it.',
@@ -84,7 +105,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '9',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('9'),
     postBody: 'My skin has never felt so soft. Thank you!',
     comment: 'I can vouch for this! Best moisturizer ever.',
     aiResponse: 'That makes us so happy to hear! Soft skin for the win!',
@@ -92,7 +113,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '10',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('10'),
     postBody: 'The perfect scent for a cozy night in. 🕯️',
     comment: 'My whole apartment smells amazing now.',
     aiResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
@@ -100,7 +121,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '11',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('11'),
     postBody: "Just got my beauty box and I'm so excited to try the products! ✨ #BeautyBox",
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse:
@@ -110,7 +131,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '12',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('12'),
     postBody: 'Excited to pamper myself with BlissfulBubbles bath bombs! 🛁 #PamperTime',
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse:
@@ -120,7 +141,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '13',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('13'),
     postBody: "Thrilled to start my self-care journey with RadiantSkin's new line! 🌟 #SelfCare",
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
@@ -128,7 +149,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '14',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('14'),
     postBody: 'New video up on my channel! Trying out the latest foundation. 🎥',
     comment: 'OMG, your skin looks flawless!',
     aiResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
@@ -136,7 +157,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '15',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('15'),
     postBody: 'Feeling confident in my new lipstick shade! 💄',
     comment: 'That color is stunning on you!',
     aiResponse: 'We love to see it! That shade was made for you. 🔥',
@@ -144,7 +165,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '16',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('16'),
     postBody: 'My morning routine just got an upgrade with this serum.',
     comment: 'I need to know more about this!',
     aiResponse: "It's a game-changer, right? So glad you're loving it!",
@@ -152,7 +173,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '17',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('17'),
     postBody: 'Loving the new packaging on these products!',
     comment: 'So chic and sustainable!',
     aiResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
@@ -160,7 +181,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '18',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('18'),
     postBody: 'This eyeshadow palette has so many amazing colors.',
     comment: 'The pigment is incredible!',
     aiResponse: 'We agree! The color payoff is one of our favorite things about it.',
@@ -168,7 +189,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '19',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('19'),
     postBody: 'My skin has never felt so soft. Thank you!',
     comment: 'I can vouch for this! Best moisturizer ever.',
     aiResponse: 'That makes us so happy to hear! Soft skin for the win!',
@@ -176,7 +197,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '20',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('20'),
     postBody: 'The perfect scent for a cozy night in. 🕯️',
     comment: 'My whole apartment smells amazing now.',
     aiResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
@@ -184,7 +205,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '21',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('21'),
     postBody: "Just got my beauty box and I'm so excited to try the products! ✨ #BeautyBox",
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse:
@@ -194,7 +215,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '22',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('22'),
     postBody: 'Excited to pamper myself with BlissfulBubbles bath bombs! 🛁 #PamperTime',
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse:
@@ -204,7 +225,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '23',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('23'),
     postBody: "Thrilled to start my self-care journey with RadiantSkin's new line! 🌟 #SelfCare",
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
@@ -212,7 +233,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '24',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('24'),
     postBody: 'New video up on my channel! Trying out the latest foundation. 🎥',
     comment: 'OMG, your skin looks flawless!',
     aiResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
@@ -220,7 +241,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '25',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('25'),
     postBody: 'Feeling confident in my new lipstick shade! 💄',
     comment: 'That color is stunning on you!',
     aiResponse: 'We love to see it! That shade was made for you. 🔥',
@@ -228,7 +249,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '26',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('26'),
     postBody: 'My morning routine just got an upgrade with this serum.',
     comment: 'I need to know more about this!',
     aiResponse: "It's a game-changer, right? So glad you're loving it!",
@@ -236,7 +257,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '27',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('27'),
     postBody: 'Loving the new packaging on these products!',
     comment: 'So chic and sustainable!',
     aiResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
@@ -244,7 +265,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '28',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('28'),
     postBody: 'This eyeshadow palette has so many amazing colors.',
     comment: 'The pigment is incredible!',
     aiResponse: 'We agree! The color payoff is one of our favorite things about it.',
@@ -252,7 +273,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '29',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('29'),
     postBody: 'My skin has never felt so soft. Thank you!',
     comment: 'I can vouch for this! Best moisturizer ever.',
     aiResponse: 'That makes us so happy to hear! Soft skin for the win!',
@@ -260,7 +281,7 @@ const mockRows: TableRowData[] = [
   },
   {
     id: '30',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage('30'),
     postBody: 'The perfect scent for a cozy night in. 🕯️',
     comment: 'My whole apartment smells amazing now.',
     aiResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
@@ -269,7 +290,7 @@ const mockRows: TableRowData[] = [
 ].concat(
   Array.from({ length: 170 }, (_, i) => ({
     id: `${i + 31}`,
-    postImage: 'https://via.placeholder.com/40',
+    postImage: getCosmeticsImage(`${i + 31}`),
     postBody: `This is post body number ${i + 31}. #Example`,
     comment: `This is a comment for post ${i + 31}.`,
     aiResponse: `This is the AI response for post ${i + 31}.`,

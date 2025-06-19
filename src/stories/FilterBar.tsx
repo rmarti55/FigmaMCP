@@ -5,7 +5,7 @@ import { SearchInput } from './SearchInput';
 
 export function FilterBar() {
   return (
-    <div className="relative w-full py-4" data-name="Filter Container">
+    <div className="relative w-full" data-name="Filter Container">
       <div className="box-border flex flex-row gap-6 items-center justify-start p-0 relative w-full">
         <div className="w-[246px]">
           <SearchInput />

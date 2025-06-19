@@ -4,8 +4,6 @@ import { TableRowData } from '@/stories/TableRow';
 import Pagination from '@/stories/Pagination';
 import PrimaryHeader from '@/stories/PrimaryHeader';
 import { FilterBar } from '@/stories/FilterBar';
-import { GridLayout, GridHeader, GridFilters, GridMain } from '@/components/Layout';
-import { Container } from '@/components/Layout/Container';
 
 // Generate cosmetics-themed social media post images
 const getCosmeticsImage = (id: string) => {
@@ -307,36 +305,29 @@ const Dashboard = () => {
   );
 
   return (
-    <GridLayout layout="dashboard-lg" className="min-h-screen">
-      <GridHeader className="bg-white border-b border-gray-200 fixed top-0 left-0 right-0 z-50">
-        <Container padding="responsive">
+    <div>
+      <div className="pt-8 pb-24">
+        <div className="px-8">
           <PrimaryHeader />
-        </Container>
-      </GridHeader>
-      
-      <GridFilters className="bg-white border-b border-gray-200 pt-20">
-        <Container padding="responsive">
+        </div>
+        <div className="px-8 mt-8 pt-4">
           <FilterBar />
-        </Container>
-      </GridFilters>
-      
-      <GridMain className="flex-1 overflow-auto">
-        <div className="pt-4">
+        </div>
+        <div className="mt-8">
           <ResponseTable headers={mockHeaders} rows={paginatedRows} />
         </div>
-        
-        <div className="fixed bottom-0 left-0 right-0 bg-white p-4 border-t border-gray-200 flex justify-center z-50">
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-            itemsPerPage={itemsPerPage}
-            onItemsPerPageChange={handleItemsPerPageChange}
-            totalItems={totalItems}
-          />
-        </div>
-      </GridMain>
-    </GridLayout>
+      </div>
+      <div className="fixed bottom-0 left-0 right-0 bg-white p-4 border-t border-gray-200 flex justify-center z-50">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          itemsPerPage={itemsPerPage}
+          onItemsPerPageChange={handleItemsPerPageChange}
+          totalItems={totalItems}
+        />
+      </div>
+    </div>
   );
 };
 

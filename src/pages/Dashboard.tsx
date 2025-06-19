@@ -4,6 +4,7 @@ import { TableRowData } from '@/stories/TableRow';
 import Pagination from '@/stories/Pagination';
 import PrimaryHeader from '@/stories/PrimaryHeader';
 import { FilterBar } from '@/stories/FilterBar';
+import { Container } from '@/components/Layout/Container';
 
 // Generate cosmetics-themed social media post images
 const getCosmeticsImage = (id: string) => {
@@ -307,12 +308,10 @@ const Dashboard = () => {
   return (
     <div>
       <div className="pt-8 pb-24">
-        <div className="px-8">
-          <PrimaryHeader />
-        </div>
-        <div className="px-8 mt-8 pt-4">
+        <PrimaryHeader />
+        <Container padding="responsive" className="mt-8 pt-4">
           <FilterBar />
-        </div>
+        </Container>
         <div className="mt-8">
           <ResponseTable headers={mockHeaders} rows={paginatedRows} />
         </div>

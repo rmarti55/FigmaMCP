@@ -300,9 +300,11 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="px-8 pt-8 pb-24">
-        <PrimaryHeader />
-        <div className="mt-8">
+      <div className="pt-8 pb-24">
+        <div className="px-8">
+          <PrimaryHeader />
+        </div>
+        <div className="px-8 mt-8">
           <FilterBar />
         </div>
         <div className="mt-8">

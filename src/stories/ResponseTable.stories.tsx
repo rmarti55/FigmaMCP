@@ -14,7 +14,7 @@ type Story = StoryObj<typeof ResponseTable>;
 const mockTableData: TableRowData[] = [
   {
     id: '1',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: '', // Will use getCosmeticsImage fallback from TableRow
     postBody: 'Just got my beauty box and I\'m so excited to try the products! ✨ #BeautyBox',
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse:
@@ -24,7 +24,7 @@ const mockTableData: TableRowData[] = [
   },
   {
     id: '2',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: '', // Will use getCosmeticsImage fallback from TableRow
     postBody: 'Excited to pamper myself with BlissfulBubbles bath bombs! 🛁 #PamperTime',
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse:
@@ -34,7 +34,7 @@ const mockTableData: TableRowData[] = [
   },
   {
     id: '3',
-    postImage: 'https://via.placeholder.com/40',
+    postImage: '', // Will use getCosmeticsImage fallback from TableRow
     postBody: 'Thrilled to start my self-care journey with RadiantSkin\'s new line! 🌟 #SelfCare',
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse: 'Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What\'s your go-to beauty tip?',

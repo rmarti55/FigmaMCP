@@ -21,7 +21,7 @@ type Story = StoryObj<typeof TableRow>;
 
 const mockRowData: TableRowData = {
   id: '1',
-  postImage: 'https://via.placeholder.com/40',
+  postImage: '', // Will use getCosmeticsImage fallback
   postBody: 'Just got my beauty box and I\'m so excited to try the products! ✨ #BeautyBox',
   comment: 'This makeup look is everything, I need to recreate it ASAP!',
   aiResponse:

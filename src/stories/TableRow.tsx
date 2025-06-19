@@ -2,6 +2,12 @@ import React from 'react';
 import { Button } from './Button';
 import { MessageSquare, Bookmark } from 'lucide-react';
 
+// Generate cosmetics-themed social media post images
+const getCosmeticsImage = (id: string) => {
+  // Use Picsum Photos with seed for consistent images per ID
+  return `https://picsum.photos/seed/${id}/40/40`;
+};
+
 export interface TableRowData {
   id: string;
   postImage: string;
@@ -22,7 +28,7 @@ export function TableRow({ rowData }: TableRowProps) {
         <div className="h-10 w-10 flex-shrink-0">
           <img
             className="h-10 w-10 rounded-full"
-            src={rowData.postImage || `https://ui-avatars.com/api/?name=User&background=random&size=40`}
+            src={rowData.postImage || getCosmeticsImage(rowData.id)}
             alt=""
             onError={e => {
               const target = e.currentTarget;

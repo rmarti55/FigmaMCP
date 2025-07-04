@@ -34,7 +34,7 @@ export function DropdownButton({ items, buttonVariant = 'dark', className = '' }
       <Button
         variant={buttonVariant}
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full"
+        className="flex items-center justify-between w-[120px]"
       >
         <span>{selectedItem}</span>
         <motion.div

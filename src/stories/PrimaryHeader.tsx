@@ -49,7 +49,7 @@ export default function PrimaryHeader({
       {/* Left Side: Brand Selector and Filter Buttons */}
       <div className="flex flex-row items-center gap-8">
         <div
-          className="relative"
+          className="relative w-[280px]"
           data-name="Platform Dropdown"
           ref={dropdownRef}
         >

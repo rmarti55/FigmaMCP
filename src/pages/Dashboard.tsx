@@ -206,6 +206,33 @@ const Dashboard = () => {
     setSelectedRowData(null);
   };
 
+  // Comment callback handlers
+  const handleSentimentChange = (commentId: string, sentiment: 'positive' | 'negative' | 'neutral') => {
+    console.log('Sentiment changed:', commentId, sentiment);
+    // TODO: Update comment sentiment in state/API
+  };
+
+  const handleCommentTagAdd = (commentId: string, tag: string) => {
+    console.log('Tag added to comment:', commentId, tag);
+    // TODO: Add tag to comment in state/API
+  };
+
+  // AI Response callback handlers
+  const handleAIResponseEdit = (responseId: string) => {
+    console.log('AI Response edit clicked:', responseId);
+    // TODO: Open edit modal or inline editing
+  };
+
+  const handleAIResponseRegenerate = (responseId: string) => {
+    console.log('AI Response regenerated:', responseId);
+    // TODO: Update response in state/API if needed
+  };
+
+  const handleAIResponsePost = (responseId: string) => {
+    console.log('AI Response posted:', responseId);
+    // TODO: Post response to social media platform
+  };
+
   const paginatedRows = mockRows.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
@@ -254,6 +281,11 @@ const Dashboard = () => {
           postBodyText={modalData.postBodyText}
           comments={modalData.comments}
           aiResponses={modalData.aiResponses}
+          onSentimentChange={handleSentimentChange}
+          onCommentTagAdd={handleCommentTagAdd}
+          onAIResponseEdit={handleAIResponseEdit}
+          onAIResponseRegenerate={handleAIResponseRegenerate}
+          onAIResponsePost={handleAIResponsePost}
         />
       )}
     </div>

@@ -224,10 +224,12 @@ const Dashboard = () => {
           onPlatformChange={setSelectedPlatform}
           darkMode={darkMode}
         />
-        <Container size="full" padding="tight" className="mt-8 pt-4">
-          <FilterBar />
-        </Container>
-        <div className="mt-8">
+        <div className="fixed top-[72px] left-0 right-0 bg-white border-b border-gray-200 z-40">
+          <Container size="full" padding="tight" className="py-4">
+            <FilterBar />
+          </Container>
+        </div>
+        <div className="mt-[140px]">
           <ResponseTable headers={mockHeaders} rows={paginatedRows} onRowClick={handleRowClick} />
         </div>
       </div>

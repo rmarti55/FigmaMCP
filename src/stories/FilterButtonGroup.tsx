@@ -22,7 +22,7 @@ export function FilterButtonGroup({ darkMode = false }: { darkMode?: boolean }) 
   return (
     <div className={`flex flex-row gap-2 items-center rounded-lg w-full ${darkMode ? 'bg-black' : 'bg-white'}`}>
       <Button 
-        variant={darkMode ? 'dark' : 'default'} 
+        variant="default"
         dropdown={{ 
           items: socialMediaPlatforms,
           onSelect: (item) => console.log('Platform selected:', item)

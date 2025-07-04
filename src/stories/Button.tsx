@@ -121,10 +121,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (isDropdown) {
       return (
-        <div className="relative inline-block text-left" ref={dropdownRef}>
+        <div className={clsx("relative text-left", className)} ref={dropdownRef}>
           <button
             className={clsx(
-              buttonVariants({ variant, size: finalSize, className }),
+              buttonVariants({ variant, size: finalSize }),
               'flex items-center justify-between w-full'
             )}
             onClick={handleClick}

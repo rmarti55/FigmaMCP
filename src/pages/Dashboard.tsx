@@ -177,6 +177,7 @@ const Dashboard = () => {
   const [selectedBrand, setSelectedBrand] = React.useState("e.l.f. Cosmetics");
   const [selectedPlatform, setSelectedPlatform] = React.useState("Instagram");
   const [selectedContentType, setSelectedContentType] = React.useState("Comments");
+  const [darkMode, setDarkMode] = React.useState(true); // Enable dark mode by default
 
   // Generate data based on current selections
   const mockRows: TableRowData[] = React.useMemo(() => {
@@ -221,6 +222,7 @@ const Dashboard = () => {
           onBrandChange={setSelectedBrand}
           selectedPlatform={selectedPlatform}
           onPlatformChange={setSelectedPlatform}
+          darkMode={darkMode}
         />
         <Container size="full" padding="tight" className="mt-8 pt-4">
           <FilterBar />

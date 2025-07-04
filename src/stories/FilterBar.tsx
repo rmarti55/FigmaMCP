@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from './Button';
-import { DropdownButton } from './DropdownButton';
 import { SearchInput } from './SearchInput';
 import { Download } from 'lucide-react';
 
@@ -12,11 +11,31 @@ export function FilterBar() {
           <SearchInput />
         </div>
         <div className="basis-0 grow min-h-px min-w-px relative shrink-0 flex gap-2.5">
-          <DropdownButton buttonVariant="rectangular" items={['Search Post']} className="flex-1" />
-          <DropdownButton buttonVariant="rectangular" items={['Show Bookmarked', 'Show All']} className="flex-1" />
-          <DropdownButton buttonVariant="rectangular" items={['Response', 'No Response']} className="flex-1" />
-          <DropdownButton buttonVariant="rectangular" items={['Comment Posted Time', 'Last 24 Hours']} className="flex-1" />
-          <DropdownButton buttonVariant="rectangular" items={['Show Hidden', 'Hide Hidden']} className="flex-1" />
+          <Button 
+            variant="rectangular" 
+            dropdown={{ items: ['Search Post'] }} 
+            className="flex-1" 
+          />
+          <Button 
+            variant="rectangular" 
+            dropdown={{ items: ['Show Bookmarked', 'Show All'] }} 
+            className="flex-1" 
+          />
+          <Button 
+            variant="rectangular" 
+            dropdown={{ items: ['Response', 'No Response'] }} 
+            className="flex-1" 
+          />
+          <Button 
+            variant="rectangular" 
+            dropdown={{ items: ['Comment Posted Time', 'Last 24 Hours'] }} 
+            className="flex-1" 
+          />
+          <Button 
+            variant="rectangular" 
+            dropdown={{ items: ['Show Hidden', 'Hide Hidden'] }} 
+            className="flex-1" 
+          />
         </div>
         <Button variant="default" icon={<Download />} className="font-sans font-bold text-sm tracking-wider uppercase">
           DOWNLOAD

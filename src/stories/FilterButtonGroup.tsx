@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button } from './Button';
-import { DropdownButton } from './DropdownButton';
 
 const socialMediaPlatforms = [
   'Instagram',
@@ -22,11 +21,17 @@ export function FilterButtonGroup({ darkMode = false }: { darkMode?: boolean }) 
 
   return (
     <div className={`flex flex-row gap-2 items-center rounded-lg w-full ${darkMode ? 'bg-black' : 'bg-white'}`}>
-      <DropdownButton items={socialMediaPlatforms} buttonVariant={darkMode ? 'dark' : 'dark'} />
+      <Button 
+        variant={darkMode ? 'dark' : 'default'} 
+        dropdown={{ 
+          items: socialMediaPlatforms,
+          onSelect: (item) => console.log('Platform selected:', item)
+        }} 
+      />
       {filterOptions.map((option) => (
         <Button
           key={option}
-          variant={selectedFilter === option ? (darkMode ? 'dark-selected' : 'selected') : (darkMode ? 'dark-default' : 'default')}
+          variant={selectedFilter === option ? 'selected' : (darkMode ? 'dark' : 'default')}
           onClick={() => setSelectedFilter(option)}
         >
           {option}

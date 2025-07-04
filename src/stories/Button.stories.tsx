@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Download } from 'lucide-react';
 import { Button } from './Button';
 
 const source = `
@@ -36,10 +36,15 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+    VariantProps<typeof buttonVariants> {
+  /**
+   * Icon to display on the left side of the button text
+   */
+  icon?: React.ReactNode;
+}
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
+  ({ className, variant, size, icon, children, ...props }, ref) => {
     const finalSize = variant === 'rectangular' || variant === 'dark-rectangular' ? null : size;
     return (
       <button
@@ -48,7 +53,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         ref={ref}
         {...props}
-      />
+      >
+        {icon && (
+          <span className="mr-2 flex-shrink-0">
+            {React.cloneElement(icon as React.ReactElement, {
+              className: clsx('h-4 w-4', (icon as React.ReactElement).props?.className),
+            })}
+          </span>
+        )}
+        {children}
+      </button>
     );
   }
 );
@@ -128,6 +142,22 @@ export const DarkRectangular: Story = {
   args: {
     children: 'Dark Rectangular Button',
     variant: 'dark-rectangular',
+  },
+};
+
+export const DownloadButton: Story = {
+  args: {
+    children: 'Download',
+    variant: 'default',
+    icon: <Download />,
+  },
+};
+
+export const DownloadDark: Story = {
+  args: {
+    children: 'Download',
+    variant: 'dark-default',
+    icon: <Download />,
   },
 };
 

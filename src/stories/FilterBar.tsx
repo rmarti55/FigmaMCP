@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from './Button';
 import { DropdownButton } from './DropdownButton';
 import { SearchInput } from './SearchInput';
+import { Download } from 'lucide-react';
 
 export function FilterBar() {
   return (
@@ -17,6 +18,9 @@ export function FilterBar() {
           <DropdownButton buttonVariant="rectangular" items={['Comment Posted Time', 'Last 24 Hours']} className="flex-1" />
           <DropdownButton buttonVariant="rectangular" items={['Show Hidden', 'Hide Hidden']} className="flex-1" />
         </div>
+        <Button variant="default" icon={<Download />} className="font-sans font-bold text-sm tracking-wider uppercase">
+          DOWNLOAD
+        </Button>
         <Button variant="default" className="font-sans font-bold text-sm tracking-wider uppercase">
           REFRESH
         </Button>

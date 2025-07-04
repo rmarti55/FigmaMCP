@@ -1,6 +1,30 @@
-import React from 'react';
-import { Edit, RotateCcw } from 'lucide-react';
+import React, { useState } from 'react';
+import { Edit, RotateCcw, Loader2 } from 'lucide-react';
 import { Button } from './Button';
+
+// AI Response variations for regeneration
+const aiResponseVariations = [
+  "Thanks babe! We're so glad you love it! 💕",
+  "OMG yes! So happy you're obsessed with it! ✨", 
+  "You're amazing! Thanks for the love! 🥰",
+  "This makes our day! Love seeing you glow! 💫",
+  "Yasss! You're absolutely glowing! Thanks hun! 💖",
+  "We love this for you! Thanks for sharing! 🌟",
+  "So happy to hear this! You're the best! 💝",
+  "Thanks for the love! Keep glowing! ✨",
+  "You're too sweet! We appreciate you! 💕",
+  "Love hearing this! Thanks beautiful! 🥰"
+];
+
+// Generate a new response based on original sentiment
+const generateNewResponse = (originalText: string): string => {
+  // Filter out the current response to avoid repeating
+  const availableResponses = aiResponseVariations.filter(response => response !== originalText);
+  
+  // Return a random response from the available options
+  const randomIndex = Math.floor(Math.random() * availableResponses.length);
+  return availableResponses[randomIndex] || aiResponseVariations[0];
+};
 
 export interface AIResponseProps {
   /**
@@ -55,6 +79,24 @@ export const AIResponse: React.FC<AIResponseProps> = ({
   onPostClick,
   className = "",
 }) => {
+  const [currentResponse, setCurrentResponse] = useState(bodyText);
+  const [isRegenerating, setIsRegenerating] = useState(false);
+
+  const handleRegenerate = async () => {
+    setIsRegenerating(true);
+    
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
+    // Generate new response
+    const newResponse = generateNewResponse(currentResponse);
+    setCurrentResponse(newResponse);
+    
+    setIsRegenerating(false);
+    
+    // Call the optional callback
+    onRegenerateClick?.();
+  };
   return (
     <div className={`space-y-4 ${className}`}>
       {showHeader && (
@@ -103,18 +145,23 @@ export const AIResponse: React.FC<AIResponseProps> = ({
                 <Edit size={16} />
               </button>
               <button
-                onClick={onRegenerateClick}
-                className="p-1 text-gray-500 hover:text-gray-700 transition-colors"
+                onClick={handleRegenerate}
+                disabled={isRegenerating}
+                className="p-1 text-gray-500 hover:text-gray-700 transition-colors disabled:opacity-50"
                 aria-label="Regenerate response"
               >
-                <RotateCcw size={16} />
+                {isRegenerating ? (
+                  <Loader2 size={16} className="animate-spin" />
+                ) : (
+                  <RotateCcw size={16} />
+                )}
               </button>
             </div>
           </div>
 
           {/* Response Text */}
           <p className="font-sans text-base text-gray-700 leading-relaxed">
-            {bodyText}
+            {currentResponse}
           </p>
 
           {/* Post Button */}

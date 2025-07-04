@@ -14,7 +14,8 @@ export function DropdownButton({ items, buttonVariant = 'dark', className = '' }
   const [selectedItem, setSelectedItem] = useState(items[0] || 'Select');
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Determine if we're in dark mode based on button variant
+  // Determine styling mode based on button variant
+  const isLightMode = buttonVariant === 'default' || buttonVariant === 'selected' || buttonVariant === 'rectangular';
   const isDarkMode = buttonVariant === 'dark' || buttonVariant?.includes('dark');
 
   useEffect(() => {

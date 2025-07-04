@@ -108,9 +108,8 @@ export const AIResponse: React.FC<AIResponseProps> = ({
             <Button
               variant="default"
               onClick={onPostClick}
-              className="bg-black text-white hover:bg-gray-800"
             >
-              Post
+              POST
             </Button>
           </div>
         </div>

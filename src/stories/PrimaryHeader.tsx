@@ -49,7 +49,7 @@ export default function PrimaryHeader({
       {/* Left Side: Brand Selector and Filter Buttons */}
       <div className="flex flex-row items-center gap-8">
         <div
-          className="relative w-[280px]"
+          className="relative w-[320px]"
           data-name="Platform Dropdown"
           ref={dropdownRef}
         >
@@ -57,15 +57,15 @@ export default function PrimaryHeader({
             className="flex flex-row gap-2 items-center cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <div className="font-sans text-3xl text-black tracking-[-0.64px] whitespace-nowrap">
+            <div className="font-sans text-3xl text-black tracking-[-0.64px] whitespace-nowrap truncate flex-1">
               {selectedBrand}
             </div>
-            <div className={clsx("transition-transform duration-200", {"rotate-180": isOpen})}>
+            <div className={clsx("transition-transform duration-200 flex-shrink-0", {"rotate-180": isOpen})}>
               <ChevronDown size={32} />
             </div>
           </div>
           {isOpen && (
-            <div className="absolute top-full left-0 mt-2 w-auto bg-white border border-gray-200 rounded-lg shadow-xl z-10">
+            <div className="absolute top-full left-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-xl z-10">
               <ul>
                 {brands.map((brand) => (
                   <li

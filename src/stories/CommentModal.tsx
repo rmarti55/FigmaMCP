@@ -115,6 +115,7 @@ export const CommentModal: React.FC<CommentModalProps> = ({
             alt={postImageAlt}
             aspectRatio="3:4"
             size="full"
+            rounded="none"
             className="w-full h-full object-cover"
           />
         </div>

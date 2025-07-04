@@ -17,16 +17,16 @@ const socialMediaPlatforms = [
 
 const filterOptions = ['Comments', 'Ads', 'All Posts', 'Earned Media', 'Statistics'];
 
-export function FilterButtonGroup() {
+export function FilterButtonGroup({ darkMode = false }: { darkMode?: boolean }) {
   const [selectedFilter, setSelectedFilter] = useState('Comments');
 
   return (
-    <div className="flex flex-row gap-2 items-center bg-white rounded-lg w-full">
-      <DropdownButton items={socialMediaPlatforms} />
+    <div className={`flex flex-row gap-2 items-center rounded-lg w-full ${darkMode ? 'bg-black' : 'bg-white'}`}>
+      <DropdownButton items={socialMediaPlatforms} buttonVariant={darkMode ? 'dark' : 'dark'} />
       {filterOptions.map((option) => (
         <Button
           key={option}
-          variant={selectedFilter === option ? 'selected' : 'default'}
+          variant={selectedFilter === option ? (darkMode ? 'dark-selected' : 'selected') : (darkMode ? 'dark-default' : 'default')}
           onClick={() => setSelectedFilter(option)}
         >
           {option}

@@ -17,6 +17,9 @@ const buttonVariants = cva(
           'bg-[#dce0f4] text-black hover:bg-indigo-200 border-[#dce0f4] rounded-[35px]',
         dark: 'bg-black text-white hover:bg-neutral-800 border-transparent rounded-[35px]',
         rectangular: 'h-10 justify-start bg-white hover:bg-neutral-100 text-black border-[#c3c5d0] rounded-none pl-3 pr-2 py-2 text-[14px] leading-[1.25]',
+        'dark-default': 'bg-gray-800 hover:bg-gray-700 text-white border-gray-700 rounded-[35px]',
+        'dark-selected': 'bg-gray-600 text-white hover:bg-gray-500 border-gray-600 rounded-[35px]',
+        'dark-rectangular': 'h-10 justify-start bg-gray-800 hover:bg-gray-700 text-white border-gray-700 rounded-none pl-3 pr-2 py-2 text-[14px] leading-[1.25]',
       },
       size: {
         default: 'h-8 px-5 py-[7px] text-[14px]',
@@ -37,7 +40,7 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
-    const finalSize = variant === 'rectangular' ? null : size;
+    const finalSize = variant === 'rectangular' || variant === 'dark-rectangular' ? null : size;
     return (
       <button
         className={clsx(
@@ -61,7 +64,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['default', 'selected', 'dark'],
+      options: ['default', 'selected', 'dark', 'rectangular', 'dark-default', 'dark-selected', 'dark-rectangular'],
     },
     size: {
       control: { type: 'select' },
@@ -104,6 +107,27 @@ export const Dark: Story = {
   args: {
     children: 'Dark Button',
     variant: 'dark',
+  },
+};
+
+export const DarkDefault: Story = {
+  args: {
+    children: 'Dark Default Button',
+    variant: 'dark-default',
+  },
+};
+
+export const DarkSelected: Story = {
+  args: {
+    children: 'Dark Selected Button',
+    variant: 'dark-selected',
+  },
+};
+
+export const DarkRectangular: Story = {
+  args: {
+    children: 'Dark Rectangular Button',
+    variant: 'dark-rectangular',
   },
 };
 

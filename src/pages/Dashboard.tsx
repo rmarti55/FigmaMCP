@@ -87,131 +87,84 @@ const mockHeaders: string[] = [
   'Edited/Posted Response',
 ];
 
-// Master templates for variation
-const masterTemplates = [
-  {
-    postBody: "Just got my beauty box and I'm so excited to try the products! ✨ #BeautyBox",
-    comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-    editedResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
+// Simple brand+platform post mapping
+const postData: { [key: string]: { postA: any, postB: any } } = {
+  "e.l.f. Cosmetics-Instagram": {
+    postA: {
+      postBody: "Just tried the new e.l.f. foundation and I'm obsessed! 💄✨",
+      comment: "This looks amazing on you! What shade is this?",
+      aiResponse: "Thanks babe! We're so glad you love it! 💕",
+      editedResponse: "Thanks babe! We're so glad you love it! 💕",
+    },
+    postB: {
+      postBody: "My e.l.f. skincare routine is giving me such a glow! ✨",
+      comment: "Your skin is literally glowing! Need this routine ASAP",
+      aiResponse: "You're too sweet! DM us for the full routine! 🌟",
+      editedResponse: "You're too sweet! DM us for the full routine! 🌟",
+    }
   },
-  {
-    postBody: 'Excited to pamper myself with BlissfulBubbles bath bombs! 🛁 #PamperTime',
-    comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-    editedResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
+  "Rhode-TikTok": {
+    postA: {
+      postBody: "Rhode peptide lip treatment is my new holy grail 👄",
+      comment: "I need to try this! Where can I get it?",
+      aiResponse: "Available on our website! You'll love it! 💋",
+      editedResponse: "Available on our website! You'll love it! 💋",
+    },
+    postB: {
+      postBody: "That Rhode glow is real! Barrier restore cream is everything ✨",
+      comment: "Been using this for a week and my skin is so soft!",
+      aiResponse: "Love hearing this! Glowing skin is the goal! 🌟",
+      editedResponse: "Love hearing this! Glowing skin is the goal! 🌟",
+    }
   },
-  {
-    postBody: "Thrilled to start my self-care journey with RadiantSkin's new line! 🌟 #SelfCare",
-    comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
-    editedResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
+  "Well People-Instagram": {
+    postA: {
+      postBody: "Clean beauty that actually works! Well People foundation is perfect 🌿",
+      comment: "Finally a clean foundation with good coverage!",
+      aiResponse: "Clean beauty for the win! Thanks for the love! 💚",
+      editedResponse: "Clean beauty for the win! Thanks for the love! 💚",
+    },
+    postB: {
+      postBody: "Well People mascara gives me the lashes I've always wanted 👁️",
+      comment: "Your lashes look incredible! Is this just mascara?",
+      aiResponse: "Just our mascara! Clean ingredients, amazing results! 🌱",
+      editedResponse: "Just our mascara! Clean ingredients, amazing results! 🌱",
+    }
   },
-  {
-    postBody: 'New video up on my channel! Trying out the latest foundation. 🎥',
-    comment: 'OMG, your skin looks flawless!',
-    aiResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
-    editedResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
-  },
-  {
-    postBody: 'Feeling confident in my new lipstick shade! 💄',
-    comment: 'That color is stunning on you!',
-    aiResponse: 'We love to see it! That shade was made for you. 🔥',
-    editedResponse: 'We love to see it! That shade was made for you. 🔥',
-  },
-  {
-    postBody: 'My morning routine just got an upgrade with this serum.',
-    comment: 'I need to know more about this!',
-    aiResponse: "It's a game-changer, right? So glad you're loving it!",
-    editedResponse: "It's a game-changer, right? So glad you're loving it!",
-  },
-  {
-    postBody: 'Loving the new packaging on these products!',
-    comment: 'So chic and sustainable!',
-    aiResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
-    editedResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
-  },
-  {
-    postBody: 'This eyeshadow palette has so many amazing colors.',
-    comment: 'The pigment is incredible!',
-    aiResponse: 'We agree! The color payoff is one of our favorite things about it.',
-    editedResponse: 'We agree! The color payoff is one of our favorite things about it.',
-  },
-  {
-    postBody: 'My skin has never felt so soft. Thank you!',
-    comment: 'I can vouch for this! Best moisturizer ever.',
-    aiResponse: 'That makes us so happy to hear! Soft skin for the win!',
-    editedResponse: 'That makes us so happy to hear! Soft skin for the win!',
-  },
-  {
-    postBody: 'The perfect scent for a cozy night in. 🕯️',
-    comment: 'My whole apartment smells amazing now.',
-    aiResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
-    editedResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
-  },
-];
+  // Default fallback
+  "default": {
+    postA: {
+      postBody: "Loving these new products! 💄",
+      comment: "This looks great!",
+      aiResponse: "Thank you so much! 💕",
+      editedResponse: "Thank you so much! 💕",
+    },
+    postB: {
+      postBody: "My skin routine is on point! ✨",
+      comment: "Your skin is glowing!",
+      aiResponse: "You're too kind! 🌟",
+      editedResponse: "You're too kind! 🌟",
+    }
+  }
+};
 
 // Brand and platform configuration
 const brands = ["e.l.f. Skin", "e.l.f. Cosmetics", "Well People", "Keys Soul Care", "Naturium", "Rhode"];
 const platforms = ["Instagram", "TikTok", "Facebook", "YouTube", "Twitter", "LinkedIn", "Pinterest", "Snapchat", "Reddit", "Twitch"];
 const contentTypes = ["Comments", "Ads", "All Posts", "Earned Media", "Statistics"];
 
-// Simple variation function
-const getVariedPost = (brand: string, platform: string, contentType: string, templateIndex: number) => {
-  const template = masterTemplates[templateIndex];
-  
-  // Brand-specific variations
-  const brandVariations: { [key: string]: any } = {
-    "e.l.f. Cosmetics": {
-      postBody: template.postBody.replace("BlissfulBubbles", "e.l.f.").replace("RadiantSkin", "e.l.f."),
-      comment: template.comment.replace("makeup look", "e.l.f. look"),
-      aiResponse: template.aiResponse.replace("We're", "We at e.l.f. are"),
-    },
-    "e.l.f. Skin": {
-      postBody: template.postBody.replace("BlissfulBubbles", "e.l.f. Skin").replace("RadiantSkin", "e.l.f. Skin"),
-      comment: template.comment.replace("makeup look", "skincare routine"),
-      aiResponse: template.aiResponse.replace("We're", "We at e.l.f. Skin are"),
-    },
-    "Well People": {
-      postBody: template.postBody.replace("BlissfulBubbles", "Well People").replace("RadiantSkin", "Well People"),
-      comment: template.comment.replace("makeup look", "clean beauty look"),
-      aiResponse: template.aiResponse.replace("We're", "We at Well People are"),
-    },
-    "Keys Soul Care": {
-      postBody: template.postBody.replace("BlissfulBubbles", "Keys Soul Care").replace("RadiantSkin", "Keys Soul Care"),
-      comment: template.comment.replace("makeup look", "self-care routine"),
-      aiResponse: template.aiResponse.replace("We're", "We at Keys Soul Care are"),
-    },
-    "Naturium": {
-      postBody: template.postBody.replace("BlissfulBubbles", "Naturium").replace("RadiantSkin", "Naturium"),
-      comment: template.comment.replace("makeup look", "science-backed routine"),
-      aiResponse: template.aiResponse.replace("We're", "We at Naturium are"),
-    },
-    "Rhode": {
-      postBody: template.postBody.replace("BlissfulBubbles", "Rhode").replace("RadiantSkin", "Rhode"),
-      comment: template.comment.replace("makeup look", "glowing skin look"),
-      aiResponse: template.aiResponse.replace("We're", "We at Rhode are"),
-    },
-  };
-
-  const variation = brandVariations[brand] || template;
-  return {
-    ...template,
-    ...variation,
-    editedResponse: variation.aiResponse || template.editedResponse,
-  };
-};
-
-// Generate dynamic data
+// Simple data generation
 const generateMockData = (brand: string = "e.l.f. Cosmetics", platform: string = "Instagram", contentType: string = "Comments") => {
+  const key = `${brand}-${platform}`;
+  const posts = postData[key] || postData["default"];
+  
   return Array.from({ length: 200 }, (_, i) => {
-    const templateIndex = i % 10;
-    const variedPost = getVariedPost(brand, platform, contentType, templateIndex);
+    const post = (i % 2 === 0) ? posts.postA : posts.postB;
     
     return {
       id: `${i + 1}`,
       postImage: getCosmeticsImage(`${brand}-${platform}-${i + 1}`),
-      ...variedPost,
+      ...post,
     };
   });
 };
@@ -270,10 +223,7 @@ const Dashboard = () => {
           onPlatformChange={setSelectedPlatform}
         />
         <Container size="full" padding="tight" className="mt-8 pt-4">
-          <FilterBar 
-            selectedContentType={selectedContentType}
-            onContentTypeChange={setSelectedContentType}
-          />
+          <FilterBar />
         </Container>
         <div className="mt-8">
           <ResponseTable headers={mockHeaders} rows={paginatedRows} onRowClick={handleRowClick} />

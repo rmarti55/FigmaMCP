@@ -13,70 +13,59 @@ const getCosmeticsImage = (id: string) => {
   return `https://picsum.photos/seed/${id}/40/40`;
 };
 
-// Transform TableRowData to CommentModal data
-const transformRowDataToModalData = (rowData: TableRowData) => {
-  // Generate a higher resolution image for the modal (600x800 for 3:4 aspect ratio)
-  const modalImage = `https://picsum.photos/seed/${rowData.id}/600/800`;
+// Helper functions for data generation
+const generateUsername = (id: string) => {
+  const usernames = [
+    'maddie.ratcliff', 'guss.gussssspam', 'beauty.lover', 'skincare.enthusiast',
+    'makeup.maven', 'glam.goddess', 'beauty.addict', 'cosmetics.queen'
+  ];
+  const index = parseInt(id) % usernames.length;
+  return usernames[index];
+};
+
+const generateTimestamp = (id: string) => {
+  const dates = [
+    '22:34:20 June 18, 2025 PST',
+    '14:55:37 June 18, 2025 PST', 
+    '16:20:15 June 18, 2025 PST',
+    '18:45:30 June 18, 2025 PST'
+  ];
+  const index = parseInt(id) % dates.length;
+  return dates[index];
+};
+
+const generateSentiment = (comment: string): 'positive' | 'negative' | 'neutral' => {
+  const lowerComment = comment.toLowerCase();
+  if (lowerComment.includes('love') || lowerComment.includes('amazing') || lowerComment.includes('great')) {
+    return 'positive';
+  }
+  if (lowerComment.includes('miss') || lowerComment.includes('hate') || lowerComment.includes('bad')) {
+    return 'negative';
+  }
+  return 'neutral';
+};
+
+const generateInitialTags = (comment: string, id: string): string[] => {
+  const lowerComment = comment.toLowerCase();
+  const tags: string[] = [];
   
-  // Extract username from comment or generate one
-  const generateUsername = (id: string) => {
-    const usernames = [
-      'maddie.ratcliff', 'guss.gussssspam', 'beauty.lover', 'skincare.enthusiast',
-      'makeup.maven', 'glam.goddess', 'beauty.addict', 'cosmetics.queen'
-    ];
-    const index = parseInt(id) % usernames.length;
-    return usernames[index];
-  };
-
-  // Generate timestamp
-  const generateTimestamp = (id: string) => {
-    const dates = [
-      '22:34:20 June 18, 2025 PST',
-      '14:55:37 June 18, 2025 PST', 
-      '16:20:15 June 18, 2025 PST',
-      '18:45:30 June 18, 2025 PST'
-    ];
-    const index = parseInt(id) % dates.length;
-    return dates[index];
-  };
-
-  // Generate sentiment based on comment content
-  const generateSentiment = (comment: string): 'positive' | 'negative' | 'neutral' => {
-    const lowerComment = comment.toLowerCase();
-    if (lowerComment.includes('love') || lowerComment.includes('amazing') || lowerComment.includes('great')) {
-      return 'positive';
-    }
-    if (lowerComment.includes('miss') || lowerComment.includes('hate') || lowerComment.includes('bad')) {
-      return 'negative';
-    }
-    return 'neutral';
-  };
-
-  const comments: CommentData[] = [
-    {
-      id: `comment-${rowData.id}`,
-      profileName: generateUsername(rowData.id),
-      sentiment: generateSentiment(rowData.comment),
-      commentText: rowData.comment,
-      timestamp: generateTimestamp(rowData.id),
-    }
-  ];
-
-  const aiResponses: AIResponseData[] = [
-    {
-      id: `ai-${rowData.id}`,
-      profileName: 'e.l.f. Cosmetics and Skincare',
-      bodyText: rowData.aiResponse,
-    }
-  ];
-
-  return {
-    postImage: modalImage,
-    postImageAlt: `Social media post ${rowData.id}`,
-    postBodyText: rowData.postBody,
-    comments,
-    aiResponses,
-  };
+  if (lowerComment.includes('love') || lowerComment.includes('obsessed')) {
+    tags.push('Brand Love');
+  }
+  if (lowerComment.includes('😍') || lowerComment.includes('💄') || lowerComment.includes('✨')) {
+    tags.push('emoji');
+  }
+  if (lowerComment.includes('routine') || lowerComment.includes('skincare')) {
+    tags.push('Values');
+  }
+  if (lowerComment.includes('need') || lowerComment.includes('want') || lowerComment.includes('where')) {
+    tags.push('product requests');
+  }
+  if (lowerComment.includes('miss') || lowerComment.includes('old')) {
+    tags.push('discontinued');
+  }
+  
+  return tags;
 };
 
 const mockHeaders: string[] = [
@@ -178,6 +167,44 @@ const Dashboard = () => {
   const [selectedPlatform, setSelectedPlatform] = React.useState("Instagram");
   const [selectedContentType, setSelectedContentType] = React.useState("Comments");
   const [darkMode, setDarkMode] = React.useState(true); // Enable dark mode by default
+  const [commentTags, setCommentTags] = React.useState<Record<string, string[]>>({});
+
+  // Transform TableRowData to CommentModal data
+  const transformRowDataToModalData = (rowData: TableRowData) => {
+    // Generate a higher resolution image for the modal (600x800 for 3:4 aspect ratio)
+    const modalImage = `https://picsum.photos/seed/${rowData.id}/600/800`;
+    
+    const commentId = `comment-${rowData.id}`;
+    const initialTags = generateInitialTags(rowData.comment, rowData.id);
+    const currentTags = commentTags[commentId] || initialTags;
+    
+    const comments: CommentData[] = [
+      {
+        id: commentId,
+        profileName: generateUsername(rowData.id),
+        sentiment: generateSentiment(rowData.comment),
+        commentText: rowData.comment,
+        timestamp: generateTimestamp(rowData.id),
+        tags: currentTags,
+      }
+    ];
+
+    const aiResponses: AIResponseData[] = [
+      {
+        id: `ai-${rowData.id}`,
+        profileName: 'e.l.f. Cosmetics and Skincare',
+        bodyText: rowData.aiResponse,
+      }
+    ];
+
+    return {
+      postImage: modalImage,
+      postImageAlt: `Social media post ${rowData.id}`,
+      postBodyText: rowData.postBody,
+      comments,
+      aiResponses,
+    };
+  };
 
   // Generate data based on current selections
   const mockRows: TableRowData[] = React.useMemo(() => {
@@ -214,7 +241,10 @@ const Dashboard = () => {
 
   const handleCommentTagAdd = (commentId: string, tag: string) => {
     console.log('Tag added to comment:', commentId, tag);
-    // TODO: Add tag to comment in state/API
+    setCommentTags(prev => ({
+      ...prev,
+      [commentId]: [...(prev[commentId] || []), tag]
+    }));
   };
 
   // AI Response callback handlers

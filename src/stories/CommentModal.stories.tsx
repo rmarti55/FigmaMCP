@@ -47,6 +47,7 @@ const mockComments: CommentData[] = [
     sentiment: 'positive',
     commentText: 'Love elf',
     timestamp: '22:34:20 June 18, 2025 PST',
+    tags: ['Brand Love'],
   },
   {
     id: '2',
@@ -55,6 +56,36 @@ const mockComments: CommentData[] = [
     sentiment: 'negative',
     commentText: 'I miss all of the old elf products 😭',
     timestamp: '14:55:37 June 18, 2025 PST',
+    tags: ['discontinued', 'emoji'],
+  },
+];
+
+const mockCommentsWithTags: CommentData[] = [
+  {
+    id: '1',
+    profileName: 'maddie.ratcliff',
+    sentiment: 'positive',
+    commentText: 'Love elf',
+    timestamp: '22:34:20 June 18, 2025 PST',
+    tags: ['Brand Love'],
+  },
+  {
+    id: '2',
+    profileImage: 'https://picsum.photos/seed/guss/40/40',
+    profileName: 'guss.gussssspam',
+    sentiment: 'negative',
+    commentText: 'I miss all of the old elf products 😭',
+    timestamp: '14:55:37 June 18, 2025 PST',
+    tags: ['discontinued', 'emoji'],
+  },
+  {
+    id: '3',
+    profileImage: 'https://picsum.photos/seed/beauty/40/40',
+    profileName: 'beauty.enthusiast',
+    sentiment: 'positive',
+    commentText: 'Where can I buy this foundation? Need it ASAP! 💄✨',
+    timestamp: '10:30:45 June 18, 2025 PST',
+    tags: ['product requests', 'emoji'],
   },
 ];
 
@@ -117,9 +148,9 @@ const meta: Meta<typeof CommentModal> = {
       action: 'sentiment changed',
       description: 'Callback when comment sentiment changes',
     },
-    onCommentAdd: {
-      action: 'comment add clicked',
-      description: 'Callback when comment add button is clicked',
+    onCommentTagAdd: {
+      action: 'comment tag added',
+      description: 'Callback when tag is added to comment',
     },
     onAIResponseEdit: {
       action: 'AI response edit clicked',
@@ -228,6 +259,103 @@ export const Closed: Story = {
     docs: {
       description: {
         story: 'Shows the modal in closed state (nothing rendered)',
+      },
+    },
+  },
+};
+
+export const WithTaggedComments: Story = {
+  args: {
+    isOpen: true,
+    postImage: 'https://picsum.photos/seed/tags/600/800',
+    postImageAlt: 'e.l.f. product showcase with tags',
+    postBodyText: 'Our new foundation collection is here! Which shade are you most excited to try? 💄✨',
+    comments: mockCommentsWithTags,
+    aiResponses: [
+      ...mockAIResponses,
+      {
+        id: 'ai-3',
+        profileName: 'e.l.f. Cosmetics and Skincare',
+        bodyText: '@beauty.enthusiast Available at all major retailers and elfcosmetics.com! 💕',
+      },
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Shows comments with various tags applied',
+      },
+    },
+  },
+};
+
+export const InteractiveTagging: Story = {
+  render: () => {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const [comments, setComments] = React.useState<CommentData[]>([
+      {
+        id: '1',
+        profileName: 'interactive.user',
+        sentiment: 'positive',
+        commentText: 'I absolutely love this new product! Where can I get it? 💄✨',
+        timestamp: 'Now',
+        tags: [],
+      },
+    ]);
+    
+    const handleTagAdd = (commentId: string, tag: string) => {
+      setComments(prev => prev.map(comment => 
+        comment.id === commentId 
+          ? { ...comment, tags: [...(comment.tags || []), tag] }
+          : comment
+      ));
+      console.log('Tag added:', commentId, tag);
+    };
+    
+    return (
+      <div className="p-8">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-sans"
+        >
+          Open Interactive Tagging Demo
+        </button>
+        
+        <CommentModal
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          postImage="https://picsum.photos/seed/tagging/600/800"
+          postImageAlt="Interactive tagging demo"
+          postBodyText="Try adding tags to the comment using the 'Add Tag' dropdown! Watch as tags appear in real-time."
+          comments={comments}
+          aiResponses={[
+            {
+              id: 'ai-1',
+              profileName: 'e.l.f. Cosmetics and Skincare',
+              bodyText: 'Thanks for the love! Check out our website for all the details! 💕',
+            },
+          ]}
+          onCommentTagAdd={handleTagAdd}
+          onSentimentChange={(commentId, sentiment) => {
+            console.log('Sentiment changed:', commentId, sentiment);
+          }}
+          onAIResponseEdit={(responseId) => {
+            console.log('AI Response edit:', responseId);
+          }}
+          onAIResponseRegenerate={(responseId) => {
+            console.log('AI Response regenerate:', responseId);
+          }}
+          onAIResponsePost={(responseId) => {
+            console.log('AI Response post:', responseId);
+          }}
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Interactive demo showing real-time tag addition functionality',
       },
     },
   },

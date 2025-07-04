@@ -12,6 +12,7 @@ export interface CommentData {
   sentiment: SentimentType;
   commentText: string;
   timestamp: string;
+  tags?: string[];
 }
 
 export interface AIResponseData {
@@ -182,6 +183,7 @@ export const CommentModal: React.FC<CommentModalProps> = ({
                       sentiment={comment.sentiment}
                       commentText={comment.commentText}
                       timestamp={comment.timestamp}
+                      tags={comment.tags}
                       onSentimentChange={(sentiment) => onSentimentChange?.(comment.id, sentiment)}
                       onTagAdd={(tag) => onCommentTagAdd?.(comment.id, tag)}
                     />

@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Comment, type SentimentType } from './Comment';
 
@@ -83,9 +84,9 @@ const meta: Meta<typeof Comment> = {
       action: 'sentiment changed',
       description: 'Callback when sentiment changes',
     },
-    onAddClick: {
-      action: 'add clicked',
-      description: 'Callback when add button is clicked',
+    onTagAdd: {
+      action: 'tag added',
+      description: 'Callback when tag is added',
     },
   },
 };
@@ -157,6 +158,48 @@ export const LongComment: Story = {
   },
 };
 
+export const WithTags: Story = {
+  args: {
+    profileImage: 'https://picsum.photos/seed/tagged/40/40',
+    profileName: 'beauty.lover',
+    sentiment: 'positive',
+    commentText: 'Love the new e.l.f. foundation! Perfect coverage and so affordable 💕',
+    timestamp: '10:15:30 June 18, 2025 PST',
+    tags: ['Brand Love', 'product requests'],
+  },
+};
+
+export const InteractiveTagging: Story = {
+  render: () => {
+    const [tags, setTags] = React.useState<string[]>([]);
+    
+    return (
+      <Comment
+        profileImage="https://picsum.photos/seed/interactive/40/40"
+        profileName="interactive.user"
+        sentiment="positive"
+        commentText="Click 'Add Tag' to see the tagging system in action!"
+        timestamp="Now"
+        tags={tags}
+        onTagAdd={(tag) => {
+          setTags(prev => [...prev, tag]);
+          console.log('Tag added:', tag);
+        }}
+        onSentimentChange={(sentiment) => {
+          console.log('Sentiment changed:', sentiment);
+        }}
+      />
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Interactive example showing tag addition functionality',
+      },
+    },
+  },
+};
+
 export const AllVariants: Story = {
   render: () => (
     <div className="space-y-6">
@@ -173,6 +216,7 @@ export const AllVariants: Story = {
         sentiment="negative"
         commentText="I miss all of the old elf products 😭"
         timestamp="14:55:37 June 18, 2025 PST"
+        tags={['discontinued']}
       />
       <Comment
         profileImage="https://picsum.photos/seed/neutral/40/40"
@@ -180,13 +224,14 @@ export const AllVariants: Story = {
         sentiment="neutral"
         commentText="It's an okay product."
         timestamp="12:30:15 June 18, 2025 PST"
+        tags={['Values', 'emoji']}
       />
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Shows all sentiment variants in a single view',
+        story: 'Shows all sentiment variants with tags in a single view',
       },
     },
   },

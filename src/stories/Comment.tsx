@@ -31,6 +31,10 @@ export interface CommentProps {
    */
   timestamp: string;
   /**
+   * Array of tags applied to this comment
+   */
+  tags?: string[];
+  /**
    * Show the header (for first comment in a section)
    */
   showHeader?: boolean;
@@ -72,12 +76,22 @@ export const Comment: React.FC<CommentProps> = ({
   sentiment,
   commentText,
   timestamp,
+  tags = [],
   showHeader = false,
   onSentimentChange,
   onTagAdd,
   className = "",
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [appliedTags, setAppliedTags] = useState<string[]>(tags);
+
+  const handleTagAdd = (tag: string) => {
+    if (!appliedTags.includes(tag)) {
+      const newTags = [...appliedTags, tag];
+      setAppliedTags(newTags);
+      onTagAdd?.(tag);
+    }
+  };
 
   const handleSentimentSelect = (newSentiment: SentimentType) => {
     onSentimentChange?.(newSentiment);
@@ -153,6 +167,20 @@ export const Comment: React.FC<CommentProps> = ({
             {commentText}
           </p>
 
+          {/* Tags */}
+          {appliedTags.length > 0 && (
+            <div className="flex flex-wrap gap-1">
+              {appliedTags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
           {/* Timestamp and Tag Button */}
           <div className="flex items-center justify-between">
             <span className="font-sans text-sm text-gray-500">
@@ -163,8 +191,8 @@ export const Comment: React.FC<CommentProps> = ({
               variant="default"
               size="sm"
               dropdown={{
-                items: tagOptions,
-                onSelect: (tag) => onTagAdd?.(tag)
+                items: tagOptions.filter(tag => !appliedTags.includes(tag)),
+                onSelect: handleTagAdd
               }}
             >
               Add Tag

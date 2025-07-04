@@ -6,12 +6,21 @@ import { FilterButtonGroup } from './FilterButtonGroup';
 
 type PrimaryHeaderProps = {
   initialOpen?: boolean;
+  selectedBrand?: string;
+  onBrandChange?: (brand: string) => void;
+  selectedPlatform?: string;
+  onPlatformChange?: (platform: string) => void;
 }
 
-export default function PrimaryHeader({ initialOpen = false }: PrimaryHeaderProps) {
+export default function PrimaryHeader({ 
+  initialOpen = false, 
+  selectedBrand = "e.l.f. Cosmetics",
+  onBrandChange,
+  selectedPlatform = "Instagram",
+  onPlatformChange
+}: PrimaryHeaderProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const brands = ["e.l.f. Skin", "e.l.f. Cosmetics", "Well People", "Keys Soul Care", "Naturium", "Rhode"];
-  const [selectedBrand, setSelectedBrand] = useState(brands[0]);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +40,7 @@ export default function PrimaryHeader({ initialOpen = false }: PrimaryHeaderProp
   }, [dropdownRef]);
 
   const handleSelectBrand = (brand: string) => {
-    setSelectedBrand(brand);
+    onBrandChange?.(brand);
     setIsOpen(false);
   }
 

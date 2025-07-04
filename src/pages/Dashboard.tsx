@@ -87,275 +87,148 @@ const mockHeaders: string[] = [
   'Edited/Posted Response',
 ];
 
-const mockRows: TableRowData[] = [
+// Master templates for variation
+const masterTemplates = [
   {
-    id: '1',
-    postImage: getCosmeticsImage('1'),
     postBody: "Just got my beauty box and I'm so excited to try the products! ✨ #BeautyBox",
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-    editedResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
+    aiResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
+    editedResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
   },
   {
-    id: '2',
-    postImage: getCosmeticsImage('2'),
     postBody: 'Excited to pamper myself with BlissfulBubbles bath bombs! 🛁 #PamperTime',
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-    editedResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
+    aiResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
+    editedResponse: "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
   },
   {
-    id: '3',
-    postImage: getCosmeticsImage('3'),
     postBody: "Thrilled to start my self-care journey with RadiantSkin's new line! 🌟 #SelfCare",
     comment: 'This makeup look is everything, I need to recreate it ASAP!',
     aiResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
     editedResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
   },
   {
-    id: '4',
-    postImage: getCosmeticsImage('4'),
     postBody: 'New video up on my channel! Trying out the latest foundation. 🎥',
     comment: 'OMG, your skin looks flawless!',
     aiResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
     editedResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
   },
   {
-    id: '5',
-    postImage: getCosmeticsImage('5'),
     postBody: 'Feeling confident in my new lipstick shade! 💄',
     comment: 'That color is stunning on you!',
     aiResponse: 'We love to see it! That shade was made for you. 🔥',
     editedResponse: 'We love to see it! That shade was made for you. 🔥',
   },
   {
-    id: '6',
-    postImage: getCosmeticsImage('6'),
     postBody: 'My morning routine just got an upgrade with this serum.',
     comment: 'I need to know more about this!',
     aiResponse: "It's a game-changer, right? So glad you're loving it!",
     editedResponse: "It's a game-changer, right? So glad you're loving it!",
   },
   {
-    id: '7',
-    postImage: getCosmeticsImage('7'),
     postBody: 'Loving the new packaging on these products!',
     comment: 'So chic and sustainable!',
     aiResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
     editedResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
   },
   {
-    id: '8',
-    postImage: getCosmeticsImage('8'),
     postBody: 'This eyeshadow palette has so many amazing colors.',
     comment: 'The pigment is incredible!',
     aiResponse: 'We agree! The color payoff is one of our favorite things about it.',
     editedResponse: 'We agree! The color payoff is one of our favorite things about it.',
   },
   {
-    id: '9',
-    postImage: getCosmeticsImage('9'),
     postBody: 'My skin has never felt so soft. Thank you!',
     comment: 'I can vouch for this! Best moisturizer ever.',
     aiResponse: 'That makes us so happy to hear! Soft skin for the win!',
     editedResponse: 'That makes us so happy to hear! Soft skin for the win!',
   },
   {
-    id: '10',
-    postImage: getCosmeticsImage('10'),
     postBody: 'The perfect scent for a cozy night in. 🕯️',
     comment: 'My whole apartment smells amazing now.',
     aiResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
     editedResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
   },
-  {
-    id: '11',
-    postImage: getCosmeticsImage('11'),
-    postBody: "Just got my beauty box and I'm so excited to try the products! ✨ #BeautyBox",
-    comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-    editedResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-  },
-  {
-    id: '12',
-    postImage: getCosmeticsImage('12'),
-    postBody: 'Excited to pamper myself with BlissfulBubbles bath bombs! 🛁 #PamperTime',
-    comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-    editedResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-  },
-  {
-    id: '13',
-    postImage: getCosmeticsImage('13'),
-    postBody: "Thrilled to start my self-care journey with RadiantSkin's new line! 🌟 #SelfCare",
-    comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
-    editedResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
-  },
-  {
-    id: '14',
-    postImage: getCosmeticsImage('14'),
-    postBody: 'New video up on my channel! Trying out the latest foundation. 🎥',
-    comment: 'OMG, your skin looks flawless!',
-    aiResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
-    editedResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
-  },
-  {
-    id: '15',
-    postImage: getCosmeticsImage('15'),
-    postBody: 'Feeling confident in my new lipstick shade! 💄',
-    comment: 'That color is stunning on you!',
-    aiResponse: 'We love to see it! That shade was made for you. 🔥',
-    editedResponse: 'We love to see it! That shade was made for you. 🔥',
-  },
-  {
-    id: '16',
-    postImage: getCosmeticsImage('16'),
-    postBody: 'My morning routine just got an upgrade with this serum.',
-    comment: 'I need to know more about this!',
-    aiResponse: "It's a game-changer, right? So glad you're loving it!",
-    editedResponse: "It's a game-changer, right? So glad you're loving it!",
-  },
-  {
-    id: '17',
-    postImage: getCosmeticsImage('17'),
-    postBody: 'Loving the new packaging on these products!',
-    comment: 'So chic and sustainable!',
-    aiResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
-    editedResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
-  },
-  {
-    id: '18',
-    postImage: getCosmeticsImage('18'),
-    postBody: 'This eyeshadow palette has so many amazing colors.',
-    comment: 'The pigment is incredible!',
-    aiResponse: 'We agree! The color payoff is one of our favorite things about it.',
-    editedResponse: 'We agree! The color payoff is one of our favorite things about it.',
-  },
-  {
-    id: '19',
-    postImage: getCosmeticsImage('19'),
-    postBody: 'My skin has never felt so soft. Thank you!',
-    comment: 'I can vouch for this! Best moisturizer ever.',
-    aiResponse: 'That makes us so happy to hear! Soft skin for the win!',
-    editedResponse: 'That makes us so happy to hear! Soft skin for the win!',
-  },
-  {
-    id: '20',
-    postImage: getCosmeticsImage('20'),
-    postBody: 'The perfect scent for a cozy night in. 🕯️',
-    comment: 'My whole apartment smells amazing now.',
-    aiResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
-    editedResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
-  },
-  {
-    id: '21',
-    postImage: getCosmeticsImage('21'),
-    postBody: "Just got my beauty box and I'm so excited to try the products! ✨ #BeautyBox",
-    comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-    editedResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-  },
-  {
-    id: '22',
-    postImage: getCosmeticsImage('22'),
-    postBody: 'Excited to pamper myself with BlissfulBubbles bath bombs! 🛁 #PamperTime',
-    comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-    editedResponse:
-      "Hey fabulous! ✨ We're so grateful for your support! It inspires us every day! What's your favorite way to use our products?",
-  },
-  {
-    id: '23',
-    postImage: getCosmeticsImage('23'),
-    postBody: "Thrilled to start my self-care journey with RadiantSkin's new line! 🌟 #SelfCare",
-    comment: 'This makeup look is everything, I need to recreate it ASAP!',
-    aiResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
-    editedResponse: "Hi beautiful! 💕 We appreciate your love for our brand! Your feedback means the world to us! What's your go-to beauty tip?",
-  },
-  {
-    id: '24',
-    postImage: getCosmeticsImage('24'),
-    postBody: 'New video up on my channel! Trying out the latest foundation. 🎥',
-    comment: 'OMG, your skin looks flawless!',
-    aiResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
-    editedResponse: "You're too kind! So glad you enjoyed the video. Let us know how you like the foundation!",
-  },
-  {
-    id: '25',
-    postImage: getCosmeticsImage('25'),
-    postBody: 'Feeling confident in my new lipstick shade! 💄',
-    comment: 'That color is stunning on you!',
-    aiResponse: 'We love to see it! That shade was made for you. 🔥',
-    editedResponse: 'We love to see it! That shade was made for you. 🔥',
-  },
-  {
-    id: '26',
-    postImage: getCosmeticsImage('26'),
-    postBody: 'My morning routine just got an upgrade with this serum.',
-    comment: 'I need to know more about this!',
-    aiResponse: "It's a game-changer, right? So glad you're loving it!",
-    editedResponse: "It's a game-changer, right? So glad you're loving it!",
-  },
-  {
-    id: '27',
-    postImage: getCosmeticsImage('27'),
-    postBody: 'Loving the new packaging on these products!',
-    comment: 'So chic and sustainable!',
-    aiResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
-    editedResponse: 'Thank you for noticing! We put a lot of thought into our new designs.',
-  },
-  {
-    id: '28',
-    postImage: getCosmeticsImage('28'),
-    postBody: 'This eyeshadow palette has so many amazing colors.',
-    comment: 'The pigment is incredible!',
-    aiResponse: 'We agree! The color payoff is one of our favorite things about it.',
-    editedResponse: 'We agree! The color payoff is one of our favorite things about it.',
-  },
-  {
-    id: '29',
-    postImage: getCosmeticsImage('29'),
-    postBody: 'My skin has never felt so soft. Thank you!',
-    comment: 'I can vouch for this! Best moisturizer ever.',
-    aiResponse: 'That makes us so happy to hear! Soft skin for the win!',
-    editedResponse: 'That makes us so happy to hear! Soft skin for the win!',
-  },
-  {
-    id: '30',
-    postImage: getCosmeticsImage('30'),
-    postBody: 'The perfect scent for a cozy night in. 🕯️',
-    comment: 'My whole apartment smells amazing now.',
-    aiResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
-    editedResponse: 'Enjoy the cozy vibes! Nothing beats a good candle.',
-  },
-].concat(
-  Array.from({ length: 170 }, (_, i) => ({
-    id: `${i + 31}`,
-    postImage: getCosmeticsImage(`${i + 31}`),
-    postBody: `This is post body number ${i + 31}. #Example`,
-    comment: `This is a comment for post ${i + 31}.`,
-    aiResponse: `This is the AI response for post ${i + 31}.`,
-    editedResponse: `This is the edited response for post ${i + 31}.`,
-  }))
-);
+];
+
+// Brand and platform configuration
+const brands = ["e.l.f. Skin", "e.l.f. Cosmetics", "Well People", "Keys Soul Care", "Naturium", "Rhode"];
+const platforms = ["Instagram", "TikTok", "Facebook", "YouTube", "Twitter", "LinkedIn", "Pinterest", "Snapchat", "Reddit", "Twitch"];
+const contentTypes = ["Comments", "Ads", "All Posts", "Earned Media", "Statistics"];
+
+// Simple variation function
+const getVariedPost = (brand: string, platform: string, contentType: string, templateIndex: number) => {
+  const template = masterTemplates[templateIndex];
+  
+  // Brand-specific variations
+  const brandVariations: { [key: string]: any } = {
+    "e.l.f. Cosmetics": {
+      postBody: template.postBody.replace("BlissfulBubbles", "e.l.f.").replace("RadiantSkin", "e.l.f."),
+      comment: template.comment.replace("makeup look", "e.l.f. look"),
+      aiResponse: template.aiResponse.replace("We're", "We at e.l.f. are"),
+    },
+    "e.l.f. Skin": {
+      postBody: template.postBody.replace("BlissfulBubbles", "e.l.f. Skin").replace("RadiantSkin", "e.l.f. Skin"),
+      comment: template.comment.replace("makeup look", "skincare routine"),
+      aiResponse: template.aiResponse.replace("We're", "We at e.l.f. Skin are"),
+    },
+    "Well People": {
+      postBody: template.postBody.replace("BlissfulBubbles", "Well People").replace("RadiantSkin", "Well People"),
+      comment: template.comment.replace("makeup look", "clean beauty look"),
+      aiResponse: template.aiResponse.replace("We're", "We at Well People are"),
+    },
+    "Keys Soul Care": {
+      postBody: template.postBody.replace("BlissfulBubbles", "Keys Soul Care").replace("RadiantSkin", "Keys Soul Care"),
+      comment: template.comment.replace("makeup look", "self-care routine"),
+      aiResponse: template.aiResponse.replace("We're", "We at Keys Soul Care are"),
+    },
+    "Naturium": {
+      postBody: template.postBody.replace("BlissfulBubbles", "Naturium").replace("RadiantSkin", "Naturium"),
+      comment: template.comment.replace("makeup look", "science-backed routine"),
+      aiResponse: template.aiResponse.replace("We're", "We at Naturium are"),
+    },
+    "Rhode": {
+      postBody: template.postBody.replace("BlissfulBubbles", "Rhode").replace("RadiantSkin", "Rhode"),
+      comment: template.comment.replace("makeup look", "glowing skin look"),
+      aiResponse: template.aiResponse.replace("We're", "We at Rhode are"),
+    },
+  };
+
+  const variation = brandVariations[brand] || template;
+  return {
+    ...template,
+    ...variation,
+    editedResponse: variation.aiResponse || template.editedResponse,
+  };
+};
+
+// Generate dynamic data
+const generateMockData = (brand: string = "e.l.f. Cosmetics", platform: string = "Instagram", contentType: string = "Comments") => {
+  return Array.from({ length: 200 }, (_, i) => {
+    const templateIndex = i % 10;
+    const variedPost = getVariedPost(brand, platform, contentType, templateIndex);
+    
+    return {
+      id: `${i + 1}`,
+      postImage: getCosmeticsImage(`${brand}-${platform}-${i + 1}`),
+      ...variedPost,
+    };
+  });
+};
 
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [selectedRowData, setSelectedRowData] = React.useState<TableRowData | null>(null);
+  const [selectedBrand, setSelectedBrand] = React.useState("e.l.f. Cosmetics");
+  const [selectedPlatform, setSelectedPlatform] = React.useState("Instagram");
+  const [selectedContentType, setSelectedContentType] = React.useState("Comments");
+
+  // Generate data based on current selections
+  const mockRows: TableRowData[] = React.useMemo(() => {
+    return generateMockData(selectedBrand, selectedPlatform, selectedContentType);
+  }, [selectedBrand, selectedPlatform, selectedContentType]);
 
   const totalItems = mockRows.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -390,9 +263,17 @@ const Dashboard = () => {
   return (
     <div>
       <div className="pt-8 pb-24">
-        <PrimaryHeader />
+        <PrimaryHeader 
+          selectedBrand={selectedBrand}
+          onBrandChange={setSelectedBrand}
+          selectedPlatform={selectedPlatform}
+          onPlatformChange={setSelectedPlatform}
+        />
         <Container size="full" padding="tight" className="mt-8 pt-4">
-          <FilterBar />
+          <FilterBar 
+            selectedContentType={selectedContentType}
+            onContentTypeChange={setSelectedContentType}
+          />
         </Container>
         <div className="mt-8">
           <ResponseTable headers={mockHeaders} rows={paginatedRows} onRowClick={handleRowClick} />

@@ -71,6 +71,10 @@ export interface CommentModalProps {
    */
   onAIResponseEdit?: (responseId: string) => void;
   /**
+   * Callback when AI response regenerate is clicked
+   */
+  onAIResponseRegenerate?: (responseId: string) => void;
+  /**
    * Callback when AI response post is clicked
    */
   onAIResponsePost?: (responseId: string) => void;
@@ -92,6 +96,7 @@ export const CommentModal: React.FC<CommentModalProps> = ({
   onSentimentChange,
   onCommentAdd,
   onAIResponseEdit,
+  onAIResponseRegenerate,
   onAIResponsePost,
 }) => {
   if (!isOpen) return null;
@@ -188,6 +193,7 @@ export const CommentModal: React.FC<CommentModalProps> = ({
                         profileName={aiResponses[index].profileName}
                         bodyText={aiResponses[index].bodyText}
                         onEditClick={() => onAIResponseEdit?.(aiResponses[index].id)}
+                        onRegenerateClick={() => onAIResponseRegenerate?.(aiResponses[index].id)}
                         onPostClick={() => onAIResponsePost?.(aiResponses[index].id)}
                       />
                     )}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { RotateCcw } from 'lucide-react';
+import { Edit, RotateCcw } from 'lucide-react';
 import { Button } from './Button';
 
 export interface AIResponseProps {
@@ -24,6 +24,10 @@ export interface AIResponseProps {
    */
   showHeader?: boolean;
   /**
+   * Callback when edit icon is clicked
+   */
+  onEditClick?: () => void;
+  /**
    * Callback when regenerate icon is clicked
    */
   onRegenerateClick?: () => void;
@@ -46,6 +50,7 @@ export const AIResponse: React.FC<AIResponseProps> = ({
   profileName,
   bodyText,
   showHeader = false,
+  onEditClick,
   onRegenerateClick,
   onPostClick,
   className = "",
@@ -78,7 +83,7 @@ export const AIResponse: React.FC<AIResponseProps> = ({
 
         {/* Response Content */}
         <div className="flex-1 space-y-3">
-          {/* Profile Name and Regenerate Icon */}
+          {/* Profile Name and Action Icons */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="font-sans text-base font-semibold text-gray-900">
@@ -89,13 +94,22 @@ export const AIResponse: React.FC<AIResponseProps> = ({
               </span>
             </div>
             
-            <button
-              onClick={onRegenerateClick}
-              className="p-1 text-gray-500 hover:text-gray-700 transition-colors"
-              aria-label="Regenerate response"
-            >
-              <RotateCcw size={16} />
-            </button>
+            <div className="flex items-center gap-1">
+              <button
+                onClick={onEditClick}
+                className="p-1 text-gray-500 hover:text-gray-700 transition-colors"
+                aria-label="Edit response"
+              >
+                <Edit size={16} />
+              </button>
+              <button
+                onClick={onRegenerateClick}
+                className="p-1 text-gray-500 hover:text-gray-700 transition-colors"
+                aria-label="Regenerate response"
+              >
+                <RotateCcw size={16} />
+              </button>
+            </div>
           </div>
 
           {/* Response Text */}

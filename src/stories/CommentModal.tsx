@@ -63,9 +63,9 @@ export interface CommentModalProps {
    */
   onSentimentChange?: (commentId: string, sentiment: SentimentType) => void;
   /**
-   * Callback when comment add button is clicked
+   * Callback when tag is added to comment
    */
-  onCommentAdd?: (commentId: string) => void;
+  onCommentTagAdd?: (commentId: string, tag: string) => void;
   /**
    * Callback when AI response edit is clicked
    */
@@ -94,7 +94,7 @@ export const CommentModal: React.FC<CommentModalProps> = ({
   responseFilter = "All",
   showHide = false,
   onSentimentChange,
-  onCommentAdd,
+  onCommentTagAdd,
   onAIResponseEdit,
   onAIResponseRegenerate,
   onAIResponsePost,
@@ -183,7 +183,7 @@ export const CommentModal: React.FC<CommentModalProps> = ({
                       commentText={comment.commentText}
                       timestamp={comment.timestamp}
                       onSentimentChange={(sentiment) => onSentimentChange?.(comment.id, sentiment)}
-                      onAddClick={() => onCommentAdd?.(comment.id)}
+                      onTagAdd={(tag) => onCommentTagAdd?.(comment.id, tag)}
                     />
                     
                     {/* AI Response for this comment */}

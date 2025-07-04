@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import clsx from 'clsx';
+import { Button } from './Button';
 
 export type SentimentType = 'positive' | 'negative' | 'neutral';
 
@@ -38,9 +39,9 @@ export interface CommentProps {
    */
   onSentimentChange?: (sentiment: SentimentType) => void;
   /**
-   * Callback when add button is clicked
+   * Callback when tag is added to comment
    */
-  onAddClick?: () => void;
+  onTagAdd?: (tag: string) => void;
   /**
    * Additional CSS classes
    */
@@ -52,6 +53,14 @@ const sentimentOptions = {
   negative: { label: 'Negative', emoji: '😞' },
   neutral: { label: 'Neutral', emoji: '😐' },
 };
+
+const tagOptions = [
+  'Brand Love',
+  'emoji',
+  'Values',
+  'product requests',
+  'discontinued'
+];
 
 /**
  * Comment component displays a single comment with profile, sentiment, and interaction options
@@ -65,7 +74,7 @@ export const Comment: React.FC<CommentProps> = ({
   timestamp,
   showHeader = false,
   onSentimentChange,
-  onAddClick,
+  onTagAdd,
   className = "",
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -144,18 +153,22 @@ export const Comment: React.FC<CommentProps> = ({
             {commentText}
           </p>
 
-          {/* Timestamp and Add Button */}
+          {/* Timestamp and Tag Button */}
           <div className="flex items-center justify-between">
             <span className="font-sans text-sm text-gray-500">
               {timestamp}
             </span>
             
-            <button
-              onClick={onAddClick}
-              className="inline-flex items-center gap-1 px-3 py-1 bg-purple-100 hover:bg-purple-200 text-purple-700 font-sans text-sm font-medium rounded-full transition-colors"
+            <Button
+              variant="default"
+              size="sm"
+              dropdown={{
+                items: tagOptions,
+                onSelect: (tag) => onTagAdd?.(tag)
+              }}
             >
-              Add <span className="text-lg">+</span>
-            </button>
+              Add Tag
+            </Button>
           </div>
         </div>
       </div>

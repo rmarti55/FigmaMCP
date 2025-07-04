@@ -54,10 +54,10 @@ export function TableRow({ rowData, onRowClick }: TableRowProps) {
           />
         </div>
       </td>
-      <td className="py-2 px-3 text-sm text-gray-500 max-w-xs align-top">{rowData.postBody}</td>
-      <td className="py-2 px-3 text-sm text-gray-500 max-w-xs align-top">{rowData.comment}</td>
-      <td className="py-2 px-3 text-sm text-gray-500 max-w-xs align-top">{rowData.aiResponse}</td>
-      <td className="py-2 px-3 text-sm text-gray-500 max-w-xs align-top">
+      <td className="py-2 px-3 text-sm text-gray-500 align-top">{rowData.postBody}</td>
+      <td className="py-2 px-3 text-sm text-gray-500 align-top">{rowData.comment}</td>
+      <td className="py-2 px-3 text-sm text-gray-500 align-top">{rowData.aiResponse}</td>
+      <td className="py-2 px-3 text-sm text-gray-500 align-top">
         {rowData.editedResponse}
       </td>
       <td className="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-6 align-top">

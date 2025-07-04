@@ -17,7 +17,15 @@ export function ResponseTable({ headers, rows, onRowClick }: ResponseTableProps)
       <div className="mt-8 flow-root">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-            <table className="min-w-full divide-y divide-gray-300">
+            <table className="min-w-full divide-y divide-gray-300" style={{ tableLayout: 'fixed' }}>
+              <colgroup>
+                <col style={{ width: '80px' }} />     {/* Post Image */}
+                <col style={{ width: '300px' }} />    {/* Post Body */}
+                <col style={{ width: '350px' }} />    {/* Comment */}
+                <col style={{ width: '350px' }} />    {/* AI Response */}
+                <col style={{ width: '350px' }} />    {/* Edited Response */}
+                <col style={{ width: '150px' }} />    {/* Actions */}
+              </colgroup>
               <TableHeader headers={headers} />
               <tbody className="divide-y divide-gray-200 bg-white">
                 {rows.map((row) => (
